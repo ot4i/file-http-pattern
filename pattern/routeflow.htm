@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2014
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="abstract" content="Route subflow for the Record Distribution to HTTP: one-way pattern"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<title>Route subflow for the Record Distribution to HTTP: one-way pattern</title>
+</head>
+<body id="com.ibm.etools.mft.pattern.fp.rd.httponeway.Route">
+<div class="section">
+	<h1 class="topictitle1">Route subflow for the Record Distribution to HTTP: one-way pattern</h1>
+<p class="shortdesc">Details about the Route subflow for the 
+	<span>Record Distribution to HTTP: one-way</span> 
+	pattern. </p>
+
+<p>The behavior of the Route subflow depends on the value of the 
+<span class="msobjprop"><i>Routing</i></span> pattern 
+parameter:</p>
+<ul>
+<li><span class="msobjpropval"><b><tt>Single Destination</tt></b></span>
+<p>If you select <span class="msobjpropval"><b><tt>Single Destination</tt></b></span>, then 
+a single HTTPRequest node is created and 
+configured with the values of the <span class="msobjprop"><i>Web Service URL</i></span> 
+pattern parameter. The routing flow is a subflow that includes a Passthrough node. 
+Both default and route terminals are included so that this subflow 
+is consistent with all other types of routing subflow, 
+but only the single route terminal is used.
+</p></li>
+
+
+<li><span class="msobjpropval"><b><tt>Specify Routes</tt></b></span>
+<p>If you select <span class="msobjpropval"><b><tt>Specify Routes</tt></b></span>, then you must define at least one route.</p>
+<p>To define a route, assign values to the following group of three parameters:</p>
+<ul>
+<li><span class="msobjprop"><i>Key Location: </i></span>
+An XPath expression that defines a key location within the current message element. 
+For more information about the type of expression to use, 
+see "Route node" and "Using XPath" in the IBM Integration Bus documentation.</li>
+<li><span class="msobjprop"><i>Key Value: </i></span>
+A value that must match the key location if this route is taken.</li>
+<li><span class="msobjprop"><i>Web Service URL: </i></span>
+The URL of an HTTP web service that can process the message.</li>
+
+</ul>
+<p>For each route that is defined, an Output terminal for the Route subflow and an HTTPRequest node
+are created and connected.</p>
+<p>The Route subflow contains a Route node that is configured with a filter that routes 
+to the first Output terminal for which the condition <tt>Key Location = Key Value</tt> is true.
+If a message element does not match any of the routes, this situation is recorded in a
+variable in the integration node environment tree, and the message is passed to the Default terminal.</p>
+<p>If the XPath expression that defines a <span class="msobjprop"><b><tt>Key Location</tt></b></span> includes a
+namespace qualifier, the tag that defines the namespace must be added to the Namespace table.</p>
+
+<p>You might see a warning on the Route node that is similar to the following message:</p>
+ <p><tt>Filter table: Filter pattern: The <var>element_name</var> schema element was not found in the 
+ <span class="msobjpropval">Key Location = Key Value</span> XPath.</tt></p>
+ <p>This warning does not cause any problems when you deploy and run your pattern instance.</p>
+</li>
+
+
+</ul>
+</div>
+<a href="overview.htm#anchor1" title="Back">Back to the Record Distribution to HTTP: one-way pattern specification</a>
+</body>
+</html>

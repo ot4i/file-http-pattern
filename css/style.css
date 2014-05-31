@@ -1,0 +1,207 @@
+* html #tlc,* html #trc {
+	height: 1%;
+}
+
+#tlc,#trc {
+	zoom: 1
+}
+
+html {
+	border: 0px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	font-size: 100%;
+	text-align: center;
+}
+
+.box {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	padding: 0px;
+	text-align: left;
+	width: 95%;
+	zIndex: 1;
+	border-left: 1px solid #C7D8F0;
+	border-right: 1px solid #C7D8F0;
+	zoom: 1;
+}
+
+.box.first {
+	margin-top: 10px;
+}
+
+#content {
+	padding: 2em;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 2em;
+	font-family: arial, helvetica, geneva, sans-serif;
+}
+
+h1.patterns-title {
+	position: relative;
+	padding-bottom: 2px;
+	padding-top: 15px;
+	padding-left: 10px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.TL,.TR,.BL,.BR {
+	background-color: white;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 10;
+	height: 4px;
+	width: 4px;
+}
+
+.TR,.BR {
+	width: 6px;
+}
+
+.TL {
+	background: url(../images/tlcorner.png) top left no-repeat;
+	left: -1px;
+	top: 0%;
+}
+
+.TR {
+	background: url(../images/trcorner.png) top right no-repeat;
+	right: -1px;
+	top: 0%;
+}
+
+.BL {
+	background: url(../images/blcorner.png) bottom left no-repeat;
+	left: -1px;
+	bottom: -10px;
+}
+
+.BR {
+	background: url(../images/brcorner.png) bottom right no-repeat;
+	bottom: -10px;
+	right: -1px;
+}
+
+* html .BR,* html .TR {
+	right: -2px;
+}
+
+.LeftBorder,.RightBorder {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 4px;
+}
+
+.ContentBox {
+	background-color: transparent;
+	position: relative;
+	top: 12px;
+	left: 12px;
+	right: -12px;
+	bottom: 10px;
+	zIndex: 99;
+	padding-right: 10px;
+	padding-bottom: 1px;
+	zoom: 1;
+}
+
+.TitleBox,.FooterBox {
+	position: absolute;
+	height: 10px;
+}
+
+.TitleBox {
+	background: url(../images/gradient.png) repeat-x;
+	background-position: 0 1px;
+	top: 0px;
+	border-top: 2px solid #C7D8F0;
+	zIndex: 1;
+	width: 100%;
+}
+
+.FooterBox {
+	bottom: -10px;
+	left: -1px;
+	border-bottom: 1px solid #C7D8F0;
+	border-left: 1px solid #C7D8F0;
+	border-right: 1px solid #C7D8F0;
+	width: 100%;
+}
+
+.LeftBorder {
+	border-left: 1px solid #C7D8F0;
+}
+
+.RightBorder {
+	border-right: 1px solid #C7D8F0;
+	right: 0px;
+	top: 4px;
+	bottom: -20px;
+}
+
+.tablenoborder {
+	display: block;
+	visibility: visible;
+}
+
+.groupBox {
+	position: relative;
+	top: 10px;
+	left: 0px;
+	width: 95%;
+	height: auto;
+	margin: 5px;
+	padding: 5px;
+}
+
+.groupBoxContainer {
+	position: absolute;
+	top: 25px;
+	height: auto;
+	left: 10px;
+	width: 96%;
+	margin: 0px;
+	padding: 0px;
+	display: none;
+}
+
+.twisty {
+	position: absolute;
+	top: -20px;
+	left: 0px;
+	width: 13px;
+	height: 13px;
+	margin: 0px;
+	padding-left: 0px;
+	border-color: black;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.twistyTitle {
+	position: absolute;
+	top: -20px;
+	left: 15px;
+	width: auto;
+	height: 13px;
+	overflow: hidden;
+	margin: 0px;
+	cursor: pointer;
+	padding-left: 5px;
+	padding-right: 5px;
+	vertical-align: middle;
+	font-size: 10px;
+	color: #2D69C6;
+	font-weight: bold;
+}
