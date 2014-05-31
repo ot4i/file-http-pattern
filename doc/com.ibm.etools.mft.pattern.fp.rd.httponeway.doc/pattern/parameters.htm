@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2014
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+	<meta name="DC.Title" content="Pattern parameters for the Record Distribution to HTTP: one-way pattern"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="../css/general.css"/>
+	<title>Pattern parameters for the Record Distribution to HTTP: one-way pattern</title>	
+	 <!-- START NON-TRANSLATABLE -->
+	<script language="JavaScript">
+	<!--
+
+	function getParameter(location, name) {
+		name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		var search = "[\\?&]" + name + "=([^&#]*)";
+		var regex = new RegExp(search);
+		var results = regex.exec(location);
+		return (results == null ? true : (results[1] == "false" ? false : true));
+	}
+	
+	function addStyleSheet() {
+		if (getParameter(window.location.href, "everything") == false) {
+			var headId = document.getElementsByTagName("head")[0];         
+			var cssNode = document.createElement("link");
+			cssNode.type = "text/css";
+			cssNode.rel = "stylesheet";
+			cssNode.href = "../css/patterns.css";
+			cssNode.media = "screen";
+			headId.appendChild(cssNode);
+		}
+	}
+		
+	addStyleSheet(); // Depends on the query string!
+	
+	function getElementsByStyleClass (className) {
+  		var all = document.all ? document.all :
+    	document.getElementsByTagName('*');
+  		var elements = new Array();
+  		
+  		for (var e = 0; e < all.length; e++) {
+    		if (all[e].className == className) {
+      			elements[elements.length] = all[e];
+      		}
+      	}
+ 		return elements;
+	}
+	
+	function collapseAll() {
+		var elements = getElementsByStyleClass('twisty');
+		for (var e = 0; e < elements.length; e++) {
+			changeTwisty(elements[e], 'TWISTIE.COLLAPSEALL');
+		}
+	}
+	
+	function expandAll() {
+		var elements = getElementsByStyleClass('twisty');
+		for (var e = 0; e < elements.length; e++) {
+			changeTwisty(elements[e], 'TWISTIE.EXPANDALL');
+		}
+	}
+	
+	function toggleTwisty(group) {
+		changeTwisty(group, 'TWISTIE.TOGGLE');
+	}
+
+	function changeTwisty(group, mode) {		
+		whichGroupId = group.parentNode.id;
+
+		whichGroupContainerId = whichGroupId + "Container";
+		whichGroupTwistyId = whichGroupId + "Twisty";
+		whichGroupTwistyImageId = whichGroupId + "Arrow";
+		groupContainerObj = document.getElementById(whichGroupContainerId);
+		twistyArrowContainerObj = document.getElementById(whichGroupTwistyId);
+		twistyArrowImageObj = document.getElementById(whichGroupTwistyImageId);
+		group.parentNode.style.height = "auto";
+
+		var toShow = false;
+		
+		if (mode == 'TWISTIE.TOGGLE') {
+			if (groupContainerObj.style.display == "none" || groupContainerObj.style.display == "") {
+				toShow = true;
+			} else {
+				toShow = false;
+			}
+		} else if (mode == 'TWISTIE.EXPANDALL') {
+			toShow = true;
+		}
+		
+		if (toShow) {
+			groupContainerObj.style.visibility = "visible";
+			groupContainerObj.style.display = "block";
+			twistyArrowImageObj.src = '../images/twisty-open.png'
+			group.parentNode.style.height = (groupContainerObj.offsetHeight + 30) +'px'; 
+	
+		} else {
+			groupContainerObj.style.visibility = "hidden";
+			groupContainerObj.style.display = "none";
+			twistyArrowImageObj.src = '../images/twisty-closed.png'
+		}
+	
+	}
+	//-->
+	</script>
+	 <!-- END NON-TRANSLATABLE -->
+</head>
+<body id="com.ibm.etools.mft.pattern.fp.rd.mq.parametertable">
+	<!-- Page main title -->
+  	<div id="title" class="invisible">
+		<h1 class="patterns-title">Parameters for the 
+		<span>Record Distribution to HTTP: one-way</span> pattern</h1>
+  	</div>
+
+	
+		
+				
+	
+		
+			<div class="box first">
+				<div class="TitleBox"><!-- --></div>
+				<div class="FooterBox"><!-- --></div>
+				<div class="TL"><!-- --></div>
+				<div class="TR"><!-- --></div>
+				<div class="BL"><!-- --></div>
+				<div class="BR"><!-- --></div>
+				<div class="ContentBox">
+					<div class="border">
+						<div class="groupBox" id="fileInput">
+							<div class="twisty" onmouseup="toggleTwisty(this)"  onkeyup="toggleTwisty(this)" role="menubar" id="fileInputTwisty">
+								<img src="../images/twisty-closed.png"
+									name="b" id="fileInputArrow" alt=""></img>
+							</div>
+							<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar"  >Input file</div>
+							
+							
+									
+									
+									
+									
+							
+							<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="fileInputContainer">
+									<div class="tablenoborder">
+										<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+											<thead align="left">
+												<tr>
+													  <th class="firstcol" align="left" valign="top" width="*">Pattern parameter</th>
+													  <th class="invisible" valign="top" width="*">M</th>
+													  <th class="invisible" valign="top" width="*">C</th>
+													  <th class="invisible" valign="top" width="*">Default</th>
+													  <th valign="top" width="*">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+														<tr>
+															<th align="left" valign="top" width="*" class="firstcol">
+																Input directory</th>
+															<td valign="top" width="*" class="invisible">
+																		Yes
+															</td>
+															<td valign="top" width="*" class="invisible">
+																		Yes
+															</td>
+															<td valign="top" width="*" class="invisible">
+																		&nbsp;
+															</td>
+															<td valign="top" width="*">
+																
+		                        <p>The location of the input files.</p>
+															</td>
+														</tr>
+														<tr>
+															<th align="left" valign="top" width="*" class="firstcol">
+																Filename pattern</th>
+															<td valign="top" width="*" class="invisible">
+																		Yes
+															</td>
+															<td valign="top" width="*" class="invisible">
+																		Yes
+															</td>
+															<td valign="top" width="*" class="invisible">
+																				<span class="msobjpropval">*</span>
+															</td>
+															<td valign="top" width="*">
+																
+    														<p>A file name or string that contains optional wildcard characters 
+    														(asterisk (*) or question mark (?)),
+    														that identify the file or files to process from the input directory.</p>
+		                        
+															</td>
+														</tr>
+														<tr>
+															<th align="left" valign="top" width="*" class="firstcol">
+																Use FTP</th>
+															<td valign="top" width="*" class="invisible">
+																		Yes
+															</td>
+															<td valign="top" width="*" class="invisible">
+																		Yes
+															</td>
+															<td valign="top" width="*" class="invisible">
+																				Not selected
+															</td>
+															<td valign="top" width="*">
+																
+    <p>If the check box is selected, FTP is used to retrieve remote files. If the check box is not selected, the files are accessed directly from the input directory.</p>
+
+															</td>
+														</tr>
+														<tr>
+															<th align="left" valign="top" width="*" class="firstcol">
+																FTP configurable service</th>
+															<td valign="top" width="*" class="invisible">
+																		No
+															</td>
+															<td valign="top" width="*" class="invisible">
+																		Yes
+															</td>
+															<td valign="top" width="*" class="invisible">
+																				<span class="msobjpropval">ftpservice</span>
+															</td>
+															<td valign="top" width="*">
+																
+    <p>The name of the configurable service that defines how FTP is used to retrieve a remote file.</p>
+
+															</td>
+														</tr>
+											</tbody>
+										</table>
+								  	</div>
+								
+						  	</div>
+				  		</div>
+			  		</div>
+				</div>
+			</div>
+	
+		
+			
+	
+		
+			<div class="box first">
+				<div class="TitleBox"><!-- --></div>
+				<div class="FooterBox"><!-- --></div>
+				<div class="TL"><!-- --></div>
+				<div class="TR"><!-- --></div>
+				<div class="BL"><!-- --></div>
+				<div class="BR"><!-- --></div>
+				<div class="ContentBox">
+					<div class="border">
+						<div class="groupBox" id="routing">
+							<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="routingTwisty">
+								<img src="../images/twisty-closed.png"
+									name="b" id="routingArrow" alt=""></img>
+							</div>
+							<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Routing</div>
+							
+							
+									
+							
+							<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="routingContainer">
+									<div class="tablenoborder">
+										<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+											<thead align="left">
+												<tr>
+													  <th class="firstcol" align="left" valign="top" width="*">Pattern parameter</th>
+													  <th class="invisible" valign="top" width="*">M</th>
+													  <th class="invisible" valign="top" width="*">C</th>
+													  <th class="invisible" valign="top" width="*">Default</th>
+													  <th valign="top" width="*">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+														<tr>
+															<th align="left" valign="top" width="*" class="firstcol">
+																Routing</th>
+															<td valign="top" width="*" class="invisible">
+																		No
+															</td>
+															<td valign="top" width="*" class="invisible">
+																		No
+															</td>
+															<td valign="top" width="*" class="invisible">
+																				<span class="msobjpropval">Single Destination</span>
+															</td>
+															<td valign="top" width="*">
+																
+    <p>The routing method to use. The following are valid values:</p>
+							<ul>
+								<li>
+									<span class="msobjpropval"><b><tt>Single Destination</tt></b></span>
+								</li>
+								<li>
+									<span class="msobjpropval"><b><tt>Specify Routes</tt></b></span>
+								</li>
+							</ul>
+		                        
+															</td>
+														</tr>
+											</tbody>
+										</table>
+								  	</div>
+								
+						  	</div>
+				  		</div>
+			  		</div>
+				</div>
+			</div>
+	
+		
+			<div class="box first">
+				<div class="TitleBox"><!-- --></div>
+				<div class="FooterBox"><!-- --></div>
+				<div class="TL"><!-- --></div>
+				<div class="TR"><!-- --></div>
+				<div class="BL"><!-- --></div>
+				<div class="BR"><!-- --></div>
+				<div class="ContentBox">
+					<div class="border">
+						<div class="groupBox" id="noRouting">
+							<div class="twisty" onmouseup="toggleTwisty(this)" id="noRoutingTwisty" onkeyup="toggleTwisty(this)" role="menubar">
+								<img src="../images/twisty-closed.png"
+									name="b" id="noRoutingArrow" alt=""></img>
+							</div>
+							<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Single Destination</div>
+							
+							
+									
+									
+							
+							<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="noRoutingContainer">
+									<div class="tablenoborder">
+										<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+											<thead align="left">
+												<tr>
+													  <th class="firstcol" align="left" valign="top" width="*">Pattern parameter</th>
+													  <th class="invisible" valign="top" width="*">M</th>
+													  <th class="invisible" valign="top" width="*">C</th>
+													  <th class="invisible" valign="top" width="*">Default</th>
+													  <th valign="top" width="*">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+											
+														<tr>
+															<th align="left" valign="top" width="*" class="firstcol">
+																Web Service URL</th>
+															<td valign="top" width="*" class="invisible">
+																		No
+															</td>
+															<td valign="top" width="*" class="invisible">
+																		Yes
+															</td>
+															<td valign="top" width="*" class="invisible">
+																				<span class="msobjpropval"></span>
+															</td>
+															<td valign="top" width="*">
+																
+    <p>The HTTP web service to which all output messages are sent when <span class="msobjpropval"><b><tt>Single Destination</tt></b></span> is selected as the routing method.</p>
+		                        
+															</td>
+														</tr>
+											</tbody>
+										</table>
+								  	</div>
+								
+						  	</div>
+				  		</div>
+			  		</div>
+				</div>
+			</div>
+	
+		
+			<div class="box first">
+				<div class="TitleBox"><!-- --></div>
+				<div class="FooterBox"><!-- --></div>
+				<div class="TL"><!-- --></div>
+				<div class="TR"><!-- --></div>
+				<div class="BL"><!-- --></div>
+				<div class="BR"><!-- --></div>
+				<div class="ContentBox">
+					<div class="border">
+						<div class="groupBox" id="specifyRoutes">
+							<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="specifyRoutesTwisty">
+								<img src="../images/twisty-closed.png"
+									name="b" id="specifyRoutesArrow" alt=""></img>
+							</div>
+							<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Specify Routes</div>
+							
+							
+									
+									
+							
+							<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="specifyRoutesContainer">
+									<div class="tablenoborder">
+										<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+											<thead align="left">
+												<tr>
+													  <th class="firstcol" align="left" valign="top" width="*">Pattern parameter</th>
+													  <th class="invisible" valign="top" width="*">M</th>
+													  <th class="invisible" valign="top" width="*">C</th>
+													  <th class="invisible" valign="top" width="*">Default</th>
+													  <th valign="top" width="*">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+														<tr>
+															<th align="left" valign="top" width="*" class="firstcol">
+																Default Web Service URL</th>
+															<td valign="top" width="*" class="invisible">
+																		No
+															</td>
+															<td valign="top" width="*" class="invisible">
+																		Yes
+															</td>
+															<td valign="top" width="*" class="invisible">
+																				
+															</td>
+															<td valign="top" width="*">
+																
+    <p>The HTTP web service to which messages are sent
+		                        when the criteria for the <span class="msobjpropval">Specify Routes</span> property value are not met.</p>
+		                        
+															</td>
+														</tr>
+						
+											</tbody>
+										</table>
+								  	</div>
+								
+					
+							    			<p>The parameters in the following 
+							    			<span class="msobjprop">Namespace table</span> define the namespace prefixes 
+and the namespace URIs that you can use in the XPath expressions that define the key locations for routes. 
+If a row is included, both of the parameters must be included.</p>
+<p>You can add, edit, and delete values, and change the order of the values in the table.</p>
+
+<div class="tablenoborder">
+	<table cellpadding="4" cellspacing="0" summary="" width="100%" rules="all" frame="border" border="1">
+		<thead align="left">
+			<tr>
+				<th class="firstcol" align="left" valign="top" width="*">Namespace table parameter</th>
+				<th class="invisible" valign="top" width="*">M</th>
+				<th class="invisible" valign="top" width="*">C</th>
+				<th class="invisible" valign="top" width="*">Default</th>
+				<th valign="top" width="*">Description</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr>
+					<th align="left" valign="top" width="*" class="firstcol">
+						Namespace prefix
+					</th>
+					<td valign="top" width="*" class="invisible">
+								Yes
+					</td>
+					<td valign="top" width="*" class="invisible">
+								No
+					</td>
+					<td valign="top" width="*" class="invisible">
+										
+					</td>
+					<td valign="top" width="*">
+						
+    <p>The tag for a namespace.</p>
+
+					</td>
+				</tr>
+				<tr>
+					<th align="left" valign="top" width="*" class="firstcol">
+						Namespace URI
+					</th>
+					<td valign="top" width="*" class="invisible">
+								Yes
+					</td>
+					<td valign="top" width="*" class="invisible">
+								No
+					</td>
+					<td valign="top" width="*" class="invisible">
+										
+					</td>
+					<td valign="top" width="*">
+						
+    <p>The namespace for the associated tag.</p>
+
+					</td>
+				</tr>
+		</tbody>
+	</table>
+</div>
+    <p>The <span class="msobjprop">Namespace table</span> defines the namespaces 
+    that are available for you to use in XPath expressions in the <span class="msobjprop">Routing table</span>.</p> 
+	
+		                        			
+<div class="tablenoborder">
+	<table cellpadding="4" cellspacing="0" summary="" width="100%" rules="all" frame="border" border="1">
+		<thead align="left">
+			<tr>
+				<th class="firstcol" align="left" valign="top" width="*">Routing table parameter</th>
+				<th class="invisible" valign="top" width="*">M</th>
+				<th class="invisible" valign="top" width="*">C</th>
+				<th class="invisible" valign="top" width="*">Default</th>
+				<th valign="top" width="*">Description</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr>
+					<th align="left" valign="top" width="*" class="firstcol">
+						Key location
+					</th>
+					<td valign="top" width="*" class="invisible">
+								Yes
+					</td>
+					<td valign="top" width="*" class="invisible">
+								No
+					</td>
+					<td valign="top" width="*" class="invisible">
+										
+					</td>
+					<td valign="top" width="*">
+					        <p>An XPath expression that defines a location within 
+							the record that is being propagated. For example: <tt>$Root/XMLNSC/submitPORequest/partNo</tt> </p>
+							<p>For more information about the type of expression to use, 
+							see "Route node" and "Using XPath" in the IBM Integration Bus documentation.</p>
+							<p>
+							Namespaces can be included if they are specified in the optional 
+							<span class="msobjprop">Namespace table</span>.
+							</p>
+
+					</td>
+				</tr>
+				<tr>
+					<th align="left" valign="top" width="*" class="firstcol">
+						Key value
+					</th>
+					<td valign="top" width="*" class="invisible">
+								Yes
+					</td>
+					<td valign="top" width="*" class="invisible">
+								No
+					</td>
+					<td valign="top" width="*" class="invisible">
+										
+					</td>
+					<td valign="top" width="*">
+						
+    <p>The <span class="msobjprop">Key location</span> field
+in the incoming message must match this value in order to use this route.</p>
+					</td>
+				</tr>
+				<tr>
+					<th align="left" valign="top" width="*" class="firstcol">
+						Web Service URL
+					</th>
+					<td valign="top" width="*" class="invisible">
+								Yes
+					</td>
+					<td valign="top" width="*" class="invisible">
+								Yes
+					</td>
+					<td valign="top" width="*" class="invisible">
+										
+					</td>
+					<td valign="top" width="*">
+						
+    <p>The target HTTP web service URL for an incoming message that matches the associated key value.</p>
+
+					</td>
+				</tr>
+		</tbody>
+	</table>
+</div>						  	</div>
+				  		</div>
+			  		</div>
+				</div>
+			</div>
+	
+		
+		
+		
+			
+		
+
+	<div id="footnotes" class="invisible">
+		<div class="box first">
+		<div class="TitleBox"><!-- --></div>
+		<div class="FooterBox"><!-- --></div>
+		<div class="TL"><!-- --></div>
+		<div class="TR"><!-- --></div>
+		<div class="BL"><!-- --></div>
+		<div class="BR"><!-- --></div>
+		<div class="ContentBox">
+			<div class="invisible" >
+				<p class="shortdesc">
+						All of the pattern parameters are listed with their default values.
+					</p>
+					<p>
+					The column headed <b>M</b> indicates whether the property is <dfn class="term">mandatory</dfn>. 
+					The column headed <b>C</b> indicates whether the property is <dfn class="term">configurable</dfn>, 
+					meaning that you can change the value when you add the message flow 
+					to the broker archive (BAR) file.
+					</p>
+					<p>
+						Where no default is indicated the default value is an empty string.
+					</p>
+				</div>
+				<a href="overview.htm#anchorBack" title="Back">Back to the Record Distribution to HTTP: one-way pattern specification</a>
+				<p></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

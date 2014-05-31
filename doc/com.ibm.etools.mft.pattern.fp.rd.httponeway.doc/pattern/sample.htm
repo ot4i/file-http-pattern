@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2014
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="abstract" content="Details about what you need to know, and what resources you must have before you can use the Record Distribution to HTTP: one-way pattern."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<title>Using the sample data with the Record Distribution to HTTP: one-way pattern</title>
+</head>
+<body id="com.ibm.etools.mft.pattern.fp.rd.httponeway.sample">
+	<h1 class="topictitle1">Using the sample data with the 
+	<span>Record Distribution to HTTP: one-way</span> pattern</h1>
+	<p class="shortdesc">If you want to test the pattern without creating your own input data and HTTP web service, 
+	you can use the sample data that is provided with the pattern. When you select a sample configuration, the required 
+	parameters are automatically completed with values that match the sample data.</p>
+	
+	<p><b>Note:</b> To run the HTTP web services that are provided with the pattern, you must have the Node.js runtime environment installed on your computer. The 
+	Node.js runtime environment can be downloaded from the <span>Node.js web site: <a href="http://nodejs.org/download/" title="Node.js web site">http://nodejs.org/download/</a></span>.
+	</p> 
+
+	<p>There are two sample configurations available with the <span>Record Distribution to HTTP: one-way</span> pattern.
+	</p>
+	
+	<p>If you select <b>Single Destination</b> as the sample configuration, then the records that are extracted from the files are all sent 
+	to the Default web service.</p>
+	<p>If you select <b>Three Possible Destinations</b> as the sample configuration, then the records that are extracted from the files are 
+	examined before they are routed to a web service:
+		<ul>
+			<li>If the Country field in the record is set to "United Kingdom", the record is routed to the UK web service.</li>
+			<li>If the Country field in the record is set to "United States", the record is routed to the US web service.</li>
+			<li>If the Country field in the record is not set to "United Kingdom" or "United States", 
+			the record is routed to the Default web service.</li>	
+		</ul>		
+	You can extend this sample configuration by adding additional routing configurations.</p>
+	
+	<p>The following sample resources are created when you generate the application from the pattern:
+	<ul>
+		<li>An input directory where you add the files to be processed by the application:
+			<ul><li>On Windows: <span class="filepath"><tt><i>temp_dir</i>\file_to_http_sample</tt></span></li>
+			<li>On Linux: <span class="filepath"><tt><i>temp_dir</i>/file_to_http_sample</tt></span></li></ul>
+			where <i>temp_dir</i> is your operating system's temporary directory.</li><br/>
+		<li>Three sample files that contain user records:
+			<ul><li>One record has a Country field set to "United Kingdom".</li>
+			<li>One record has a Country field set to "United States".</li>
+			<li>One record has a Country field set to "Canada".</li></ul></li><br/>
+		<li>A Node.js web server with three web services available from the following URLs:
+			<ul><li>UK web service: <tt>http://localhost:<i>port</i>/country/uk.html</tt></li>
+			<li>US web service: <tt>http://localhost:<i>port</i>/country/us.html</tt></li>
+			<li>Default web service: <tt>http://localhost:<i>port</i>/country/default.html</tt></li></ul></li>
+			
+			where <i>port</i> is an available port. By default the port will be <tt>3000</tt>, unless this port is not available.
+	</ul>
+		</p>
+	
+		
+
+<p>
+		<a href="overview.htm#anchorBack" title="Back">Back to the Record Distribution to HTTP: one-way pattern specification</a>
+</p>
+</body>
+</html>

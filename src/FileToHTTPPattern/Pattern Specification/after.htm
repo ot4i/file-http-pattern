@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009, 2010
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="abstract" content="Tasks to complete after generating the Record Distribution to HTTP: one-way pattern."/>
+	<meta name="description" content=""/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<title>Tasks to complete after generating the Record Distribution to HTTP: one-way pattern</title>
+</head>
+<body id="com.ibm.etools.mft.pattern.fp.rd.httponeway.after">
+	<h1 class="topictitle1">Tasks to complete after generating the <span>Record Distribution to HTTP: one-way</span> pattern</h1>
+	<p class="shortdesc">Complete the following tasks after you have generated the pattern:</p>
+
+<ol>
+<li>Create the broker archive (BAR) file. Add the generated message flow and subflows to your BAR file. 
+In the BAR file editor, you must select the <span class="uicontrol"><tt>Compile and in-line resources</tt></span> option before you build the BAR file. 
+If you have used a message model to define how records are parsed, you must add the message model to the BAR file. For more information, search for "Creating a BAR file" in the 
+IBM Integration Bus documentation.
+</li>
+<li>Configure the BAR file. Review the default options and configure any changes required for your environment.</li>
+<!--<p>In the <span class="uicontrol">Manage</span> page of the <span class="uicontrol">BAR file</span> 
+editor:</p>
+<ul>
+	<li>Optional: Use the 
+	<span class="msobjprop">LoggingOn</span> user-defined property to
+		select whether logging is on or off for the message flow.</li>
+	<li>Optional: Use the <span class="msobjprop">ErrorLoggingOn</span> 
+	user-defined property to select whether
+		error messages are generated.</li>
+	<li>Optional: You can also change any of the configurable properties
+		in the BAR file, for example, properties for security or creating
+		additional instances. You must ensure that any values that you
+		change do not impact the behavior of the pattern instance.</li>
+</ul></li>-->
+
+<!--<li>In the summary file, view the list of queues that you must create. The summary file 
+ is located in the Pattern Configuration folder of the 
+ <i>InstanceName</i> pattern instance project.</li> -->
+ 
+
+<!--<li>
+If you use the <span class="msobjpropval">Lookup routes</span> value in the 
+<span class="msobjprop">Routing</span> parameter, 
+you can define routes dynamically in the database 
+but the routes are not listed in the summary file. 
+If you have added routes to the database, 
+you must create the corresponding queues and queue managers.   </li> 
+<li>Set up a routing database if required.
+If the <span class="msobjpropval">Lookup routes</span> value is selected in the 
+<span class="msobjprop">Routing</span> parameter, the data source
+must be set up with a ROUTING_TABLE table. This table must include the following columns:
+<ul>
+<li>ROUTING_CONTEXT
+<p>Use a value that identifies the routing entries for this flow.</p>
+</li>
+<li>VARIABLE1
+<p>The value that the <span class="msobjprop">KEY1</span> property 
+from the message element must match.</p>
+</li>
+<li>VARIABLE2
+<p>The value that the <span class="msobjprop">KEY2</span> property 
+from the message element must match.</p>
+</li>
+<li>QUEUE_MANAGER
+<p>The queue manager of the destination.</p>
+</li>
+<li>QUEUE_NAME
+<p>The destination queue.</p>
+</li>
+</ul>
+</li>-->
+<li>If you have chosen to use FTP to access the input files, 
+you must create an FtpServer configurable service 
+on the target integration node so that the FileInput node can connect to the remote FTP server. 
+The name of the configurable service must match the name that you specified in your pattern configuration. 
+For more information, search for "FtpServer configurable service" in the IBM Integration Bus documentation.</li>
+<li>Deploy the BAR file. For more information, search for "Deploying a BAR file" in the IBM Integration Bus documentation.
+</li>
+</ol>
+
+
+
+	<p>
+		<a href="overview.htm#anchorBack" title="Back">Back to the Record Distribution to HTTP: one-way pattern specification</a>
+	</p>
+</body>
+</html>

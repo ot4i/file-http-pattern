@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="utf-8"?>
+<capture:plugins>
+    <modelVersion>1.0.0.0</modelVersion>
+    <plugin pluginLocale="en-GB" pluginPath="com/ibm/etools/mft/pattern/fp/rd/httponeway" pluginRootRelativePath="/" pluginRootAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/" pluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway" docPluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway.doc" nlsPluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway.nl1" nlsDocPluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway.doc.nl1" pluginRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway" pluginAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/com.ibm.etools.mft.pattern.fp.rd.httponeway" docRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc" docAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc" nlsRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway.nl1" nlsAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/com.ibm.etools.mft.pattern.fp.rd.httponeway.nl1" nlsDocRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc.nl1" nlsDocAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc.nl1">
+        <pluginId>Id1443f59b1356d64b6ad7e3280c4</pluginId>
+        <displayName>Pattern Plug-in</displayName>
+        <package>com.ibm.etools.mft.pattern.fp.rd.httponeway</package>
+        <description>File Record Distribution using HTTP</description>
+        <version>0.0.0.12</version>
+        <provider>IBM</provider>
+        <categories/>
+        <patterns>
+            <pattern patternKey="com_ibm_etools_mft_pattern_fp_rd_httponeway_pattern" patternPath="com/ibm/etools/mft/pattern/fp/rd/httponeway/pattern" resourcesPath=".." patternTemplatePath="pattern" patternRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway" patternAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/com.ibm.etools.mft.pattern.fp.rd.httponeway">
+                <patternId>Id1443f59b135b2c2dc56086343d0</patternId>
+                <package>com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern</package>
+                <parentPackage>com.ibm.etools.mft.pattern.fp.rd</parentPackage>
+                <templatePackage>pattern</templatePackage>
+                <displayName>HTTP one-way</displayName>
+                <schema/>
+                <referencedProjects>
+                    <referencedProject>
+                        <referencedProjectId>Id146529a9a0c2bcc1d8c72e5e3ba</referencedProjectId>
+                        <displayName>HTTP one-way</displayName>
+                        <enabled>true</enabled>
+                        <customProject>false</customProject>
+                        <prefixProjectName>true</prefixProjectName>
+                        <expression></expression>
+                        <referenceId></referenceId>
+                        <folders>
+                            <folder>
+                                <folderName>root</folderName>
+                                <relativePath></relativePath>
+                                <enabled>true</enabled>
+                                <files>
+                                    <file fileName=".project" isTransformOnGenerate="true" filePath="pattern/templates/HTTP one-way/" fileExtension=".data">
+                                        <fileName>.project</fileName>
+                                        <relativePath>.project</relativePath>
+                                        <enabled>true</enabled>
+                                        <targets/>
+                                    </file>
+                                    <file fileName="RecordDistributor.msgflow" isTransformOnGenerate="true" filePath="pattern/templates/HTTP one-way/" fileExtension=".data">
+                                        <fileName>RecordDistributor.msgflow</fileName>
+                                        <relativePath>RecordDistributor.msgflow</relativePath>
+                                        <enabled>true</enabled>
+                                        <targets/>
+                                    </file>
+                                    <file fileName="RecordProcessor.subflow" isTransformOnGenerate="true" filePath="pattern/templates/HTTP one-way/" fileExtension=".data">
+                                        <fileName>RecordProcessor.subflow</fileName>
+                                        <relativePath>RecordProcessor.subflow</relativePath>
+                                        <enabled>true</enabled>
+                                        <targets/>
+                                    </file>
+                                    <file fileName="Route.subflow" isTransformOnGenerate="true" filePath="pattern/templates/HTTP one-way/" fileExtension=".data">
+                                        <fileName>Route.subflow</fileName>
+                                        <relativePath>Route.subflow</relativePath>
+                                        <enabled>true</enabled>
+                                        <targets/>
+                                    </file>
+                                    <file fileName="application.descriptor" isTransformOnGenerate="false" filePath="pattern/templates/HTTP one-way/" fileExtension=".data">
+                                        <fileName>application.descriptor</fileName>
+                                        <relativePath>application.descriptor</relativePath>
+                                        <enabled>false</enabled>
+                                        <targets/>
+                                    </file>
+                                </files>
+                                <folders>
+                                    <folder>
+                                        <folderName>mqsi</folderName>
+                                        <relativePath>mqsi</relativePath>
+                                        <enabled>true</enabled>
+                                        <files/>
+                                        <folders/>
+                                    </folder>
+                                </folders>
+                            </folder>
+                        </folders>
+                    </referencedProject>
+                    <referencedProject>
+                        <referencedProjectId>Id146529a9a16b2a5be6c0879d9a5</referencedProjectId>
+                        <displayName>HTTP-oneway_sample</displayName>
+                        <enabled>true</enabled>
+                        <customProject>false</customProject>
+                        <prefixProjectName>true</prefixProjectName>
+                        <expression>pp:getValue(&apos;includesample&apos;)!=&apos;sample_none&apos;</expression>
+                        <referenceId></referenceId>
+                        <folders>
+                            <folder>
+                                <folderName>root</folderName>
+                                <relativePath></relativePath>
+                                <enabled>true</enabled>
+                                <files>
+                                    <file fileName=".project" isTransformOnGenerate="true" filePath="pattern/templates/HTTP-oneway_sample/" fileExtension=".data">
+                                        <fileName>.project</fileName>
+                                        <relativePath>.project</relativePath>
+                                        <enabled>true</enabled>
+                                        <targets/>
+                                    </file>
+                                    <file fileName="Record1.json" isTransformOnGenerate="false" filePath="pattern/templates/HTTP-oneway_sample/" fileExtension=".data">
+                                        <fileName>Record1.json</fileName>
+                                        <relativePath>Record1.json</relativePath>
+                                        <enabled>true</enabled>
+                                        <targets/>
+                                    </file>
+                                    <file fileName="Record2.json" isTransformOnGenerate="false" filePath="pattern/templates/HTTP-oneway_sample/" fileExtension=".data">
+                                        <fileName>Record2.json</fileName>
+                                        <relativePath>Record2.json</relativePath>
+                                        <enabled>true</enabled>
+                                        <targets/>
+                                    </file>
+                                    <file fileName="Record3.json" isTransformOnGenerate="false" filePath="pattern/templates/HTTP-oneway_sample/" fileExtension=".data">
+                                        <fileName>Record3.json</fileName>
+                                        <relativePath>Record3.json</relativePath>
+                                        <enabled>true</enabled>
+                                        <targets/>
+                                    </file>
+                                </files>
+                                <folders>
+                                    <folder>
+                                        <folderName>webserver</folderName>
+                                        <relativePath>webserver</relativePath>
+                                        <enabled>true</enabled>
+                                        <files>
+                                            <file fileName="package.json" isTransformOnGenerate="false" filePath="pattern/templates/HTTP-oneway_sample/webserver" fileExtension=".data">
+                                                <fileName>package.json</fileName>
+                                                <relativePath>webserver/package.json</relativePath>
+                                                <enabled>true</enabled>
+                                                <targets/>
+                                            </file>
+                                            <file fileName="server.js" isTransformOnGenerate="false" filePath="pattern/templates/HTTP-oneway_sample/webserver" fileExtension=".data">
+                                                <fileName>server.js</fileName>
+                                                <relativePath>webserver/server.js</relativePath>
+                                                <enabled>true</enabled>
+                                                <targets/>
+                                            </file>
+                                        </files>
+                                        <folders>
+                                            <folder>
+                                                <folderName>public</folderName>
+                                                <relativePath>webserver/public</relativePath>
+                                                <enabled>true</enabled>
+                                                <files/>
+                                                <folders>
+                                                    <folder>
+                                                        <folderName>country</folderName>
+                                                        <relativePath>webserver/public/country</relativePath>
+                                                        <enabled>true</enabled>
+                                                        <files/>
+                                                        <folders/>
+                                                    </folder>
+                                                </folders>
+                                            </folder>
+                                        </folders>
+                                    </folder>
+                                </folders>
+                            </folder>
+                        </folders>
+                    </referencedProject>
+                </referencedProjects>
+                <groups>
+                    <group documentationRequired="true" tableRequired="true">
+                        <groupId>Id1443f5a93b9a887432db7e7e97</groupId>
+                        <displayName>Sample</displayName>
+                        <generateDocumentation>true</generateDocumentation>
+                        <description>Specify whether you require a sample with the pattern</description>
+                        <expand>false</expand>
+                        <visible>true</visible>
+                        <parameters>
+                            <parameter>
+                                <parameterId>includesample</parameterId>
+                                <referenceId>Id1443f5af828e26151efc94e7f59</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Include Sample</displayName>
+                                <default>5061747465726E732173616D706C655F6E6F6E65</default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>Id14449bec550642c2b87ae8b123c</type>
+                                </schema>
+                                <helpText>&lt;p&gt;Specified the sample type if required&lt;/p&gt;
+&lt;p&gt;Options: &lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;None: &lt;/strong&gt;Indicates that a sample is not required&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Single Destination: &lt;/strong&gt;Includes a sample with no routing capabilities&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Specific routing: &lt;/strong&gt;Includes a sample with specific routes&lt;/li&gt;
+&lt;/ul&gt;</helpText>
+                                <master>
+                                    <slave>
+                                        <parameterId>routingtype</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                    <slave>
+                                        <parameterId>noroutingweburl</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                    <slave>
+                                        <parameterId>specificroutesurl</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                    <slave>
+                                        <parameterId>inputdir</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                    <slave>
+                                        <parameterId>specificroutesrouting</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                    <slave>
+                                        <parameterId>specificroutesnamespace</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                </master>
+                                <continuation>false</continuation>
+                            </parameter>
+                        </parameters>
+                    </group>
+                    <group documentationRequired="true" tableRequired="true">
+                        <groupId>Id1443f7159cc70f5188c86560abc</groupId>
+                        <displayName>Input file</displayName>
+                        <generateDocumentation>true</generateDocumentation>
+                        <description>Details of how to access the input data</description>
+                        <expand>false</expand>
+                        <visible>true</visible>
+                        <parameters>
+                            <parameter>
+                                <parameterId>inputdir</parameterId>
+                                <referenceId>Id14473293d00d6df08ccc7f94310</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Input Directory</displayName>
+                                <default></default>
+                                <waterMark>Enter the directory in which the input file is located</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <editor>com.ibm.etools.mft.pattern.support.edit.extensions.custom.UserDefinedEditorExtension</editor>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;The location of the input file.&lt;/p&gt;</helpText>
+                                <actions>
+                                    <action>
+                                        <type>custom</type>
+                                    </action>
+                                </actions>
+                                <editorConfiguration>
+                                    <configuration>
+                                        <key>userDefinedEditor</key>
+                                        <value>com.ibm.etools.mft.pattern.fp.rd.http.code|com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.editors.FolderSelectionEditor|includesample|sampleContentId=input_directory_path</value>
+                                    </configuration>
+                                </editorConfiguration>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>filenamepattern</parameterId>
+                                <referenceId>Id1443f7159cc90a02301fd54a249</referenceId>
+                                <defaultTranslated>true</defaultTranslated>
+                                <displayName>Filename pattern</displayName>
+                                <default>*</default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;A file name or string containing optional wildcard characters (asterisk (*) or question mark (?)) identifying the file or files to process from the input directory.
+&lt;/p&gt;</helpText>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>useftp</parameterId>
+                                <referenceId>Id1456a16c1df4371e7a9ffb03737</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Use FTP</displayName>
+                                <default>false</default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:boolean</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This parameter determines whether FTP is used to retrieve remote files.
+&lt;/p&gt;</helpText>
+                                <master>
+                                    <slave>
+                                        <parameterId>ftpservice</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                </master>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>ftpservice</parameterId>
+                                <referenceId>Id1456a1713d7418f7cbe84f8c56c</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>FTP configurable service</displayName>
+                                <default></default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>false</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>0</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This configurable service defines how FTP is used to retrieve a remote file.
+&lt;/p&gt;</helpText>
+                                <actions>
+                                    <action>
+                                        <type>enablement</type>
+                                        <default>false</default>
+                                        <conditionExpression>pp:getValue(&apos;useftp&apos;) = &apos;true&apos;</conditionExpression>
+                                        <valueExpression>true()</valueExpression>
+                                    </action>
+                                </actions>
+                                <continuation>false</continuation>
+                            </parameter>
+                        </parameters>
+                    </group>
+                    <group documentationRequired="true" tableRequired="true">
+                        <groupId>Id1443f71c2fe44dd7c3e27d37d4b</groupId>
+                        <displayName>Routing</displayName>
+                        <generateDocumentation>true</generateDocumentation>
+                        <description>Specify the routing type</description>
+                        <expand>false</expand>
+                        <visible>true</visible>
+                        <parameters>
+                            <parameter>
+                                <parameterId>routingtype</parameterId>
+                                <referenceId>Id1443f72184e9b9525027ce2b800</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Routing</displayName>
+                                <default>5061747465726E73216E6F5F726F7574696E67</default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression>pp:getValue(&apos;includesample&apos;)</expression>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>Id1443f728c4111bd67117f7c873f</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This parameter defines the routing method to use. Valid values are:&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;No routing&lt;/li&gt;&lt;li&gt;Specify routes&lt;/li&gt;&lt;/ul&gt;</helpText>
+                                <actions>
+                                    <action>
+                                        <type>enablement</type>
+                                        <default>false</default>
+                                        <conditionExpression>pp:getValue(&apos;includesample&apos;) = &apos;sample_none&apos;</conditionExpression>
+                                        <valueExpression>true()</valueExpression>
+                                    </action>
+                                </actions>
+                                <continuation>false</continuation>
+                            </parameter>
+                        </parameters>
+                    </group>
+                    <group documentationRequired="true" tableRequired="true">
+                        <groupId>Id1443f9005f0d0ccc2eb9f1a343</groupId>
+                        <displayName>Single Destination</displayName>
+                        <generateDocumentation>true</generateDocumentation>
+                        <description>Specify the single output destination</description>
+                        <expand>false</expand>
+                        <visible>true</visible>
+                        <parameters>
+                            <parameter>
+                                <parameterId>noroutingweburl</parameterId>
+                                <referenceId>Id1443f901c61bdd057b1290913f8</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Web Service URL</displayName>
+                                <default></default>
+                                <waterMark></waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <editor>com.ibm.etools.mft.pattern.support.edit.extensions.custom.UserDefinedEditorExtension</editor>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This parameter defines the HTTP web service to which all output messages are sent.
+&lt;/p&gt;</helpText>
+                                <actions>
+                                    <action>
+                                        <type>custom</type>
+                                    </action>
+                                </actions>
+                                <editorConfiguration>
+                                    <configuration>
+                                        <key>userDefinedEditor</key>
+                                        <value>com.ibm.etools.mft.pattern.fp.rd.http.code|com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.editors.TextInputEditor|includesample|sampleContentId=web_service_url</value>
+                                    </configuration>
+                                </editorConfiguration>
+                                <continuation>false</continuation>
+                            </parameter>
+                        </parameters>
+                        <actions>
+                            <action>
+                                <type>visibility</type>
+                                <default>false</default>
+                                <conditionExpression>(pp:getValue(&apos;includesample&apos;) = &apos;sample_none&apos; and pp:getValue(&apos;routingtype&apos;) = &apos;no_routing&apos;) or pp:getValue(&apos;includesample&apos;) = &apos;no_routing&apos;</conditionExpression>
+                                <valueExpression>true()</valueExpression>
+                            </action>
+                        </actions>
+                    </group>
+                    <group documentationRequired="true" tableRequired="true">
+                        <groupId>Id1443f91238f10970b86f19b26fe</groupId>
+                        <displayName>Specify Routes</displayName>
+                        <generateDocumentation>true</generateDocumentation>
+                        <description>Specify routing rules and destinations</description>
+                        <expand>false</expand>
+                        <visible>true</visible>
+                        <parameters>
+                            <parameter>
+                                <parameterId>specificroutesurl</parameterId>
+                                <referenceId>Id1443f915bd797d0d1535e995a9</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Default Web Service URL</displayName>
+                                <default></default>
+                                <waterMark></waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <editor>com.ibm.etools.mft.pattern.support.edit.extensions.custom.UserDefinedEditorExtension</editor>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This parameter defines the HTTP web service to which messages are sent when the criteria for the Specify routes property value are not met.
+&lt;/p&gt;</helpText>
+                                <actions>
+                                    <action>
+                                        <type>custom</type>
+                                    </action>
+                                </actions>
+                                <editorConfiguration>
+                                    <configuration>
+                                        <key>userDefinedEditor</key>
+                                        <value>com.ibm.etools.mft.pattern.fp.rd.http.code|com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.editors.TextInputEditor|includesample|sampleContentId=web_service_url</value>
+                                    </configuration>
+                                </editorConfiguration>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>specificroutesnamespace</parameterId>
+                                <referenceId>Id1446433abba5fd3715d7f726693</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Namespace Table</displayName>
+                                <default></default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>false</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <editor>com.ibm.etools.mft.pattern.support.edit.extensions.custom.UserDefinedEditorExtension</editor>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>0</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;Namespace table define the namespace prefixes 
+and the namespace URIs that you can use in the XPath expressions that define the key locations for routes. 
+If a row is included, both of the parameters must be included.&lt;/p&gt;
+&lt;p&gt;You can add, edit, and delete values, and change the order of the values in the table.&lt;/p&gt;</helpText>
+                                <actions>
+                                    <action>
+                                        <type>custom</type>
+                                    </action>
+                                </actions>
+                                <editorConfiguration>
+                                    <configuration>
+                                        <key>userDefinedEditor</key>
+                                        <value>com.ibm.etools.mft.pattern.fp.rd.http.code|com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.editors.TableInputEditor|includesample|columns=Namespace Prefix, Namespace URI;sampleOption=SPECIFIC_ROUTING;</value>
+                                    </configuration>
+                                </editorConfiguration>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>specificroutesrouting</parameterId>
+                                <referenceId>Id1446ed53aefd094b69b329e48e3</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Routing Table</displayName>
+                                <default></default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <editor>com.ibm.etools.mft.pattern.support.edit.extensions.custom.UserDefinedEditorExtension</editor>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;Defines the routing XPATH expressions&apos; key, value and HTTP web service URL&lt;/p&gt;</helpText>
+                                <actions>
+                                    <action>
+                                        <type>custom</type>
+                                    </action>
+                                </actions>
+                                <editorConfiguration>
+                                    <configuration>
+                                        <key>userDefinedEditor</key>
+                                        <value>com.ibm.etools.mft.pattern.fp.rd.http.code|com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.editors.TableInputEditor|includesample|columns=Key Location, Key Value, Web service URL;sampleContentId=routing_table;sampleOption=SPECIFIC_ROUTING</value>
+                                    </configuration>
+                                </editorConfiguration>
+                                <continuation>false</continuation>
+                            </parameter>
+                        </parameters>
+                        <actions>
+                            <action>
+                                <type>visibility</type>
+                                <default>false</default>
+                                <conditionExpression>(pp:getValue(&apos;includesample&apos;) = &apos;sample_none&apos; and pp:getValue(&apos;routingtype&apos;) = &apos;specific_routes&apos;) or pp:getValue(&apos;includesample&apos;) = &apos;specific_routes&apos;</conditionExpression>
+                                <valueExpression>true()</valueExpression>
+                            </action>
+                        </actions>
+                    </group>
+                </groups>
+                <messages/>
+                <patternExtensions>
+                    <packageExtensions>
+                        <packageExtension>
+                            <extensionId>Id1465349ff53dd11e734e6ef0fb9</extensionId>
+                            <extensionClass>com.ibm.etools.mft.pattern.support.edit.pattern.PackagePatternEditorTransform</extensionClass>
+                            <extensionConfiguration/>
+                        </packageExtension>
+                    </packageExtensions>
+                    <generateExtensions>
+                        <generateExtension>
+                            <extensionId>Id1443f74f3245f588da3b5510888</extensionId>
+                            <extensionClass>com.ibm.etools.mft.pattern.support.java.JavaPatternInstanceTransform</extensionClass>
+                            <extensionConfiguration>
+                                <configuration>
+                                    <key>class</key>
+                                    <value>com.ibm.etools.mft.pattern.fp.rd.http.code.PatternGenerator</value>
+                                </configuration>
+                                <configuration>
+                                    <key>pluginId</key>
+                                    <value>com.ibm.etools.mft.pattern.fp.rd.http.code</value>
+                                </configuration>
+                                <configuration>
+                                    <key>relativePath</key>
+                                    <value></value>
+                                </configuration>
+                                <configuration>
+                                    <key>projectName</key>
+                                    <value></value>
+                                </configuration>
+                                <configuration>
+                                    <key>outputPath</key>
+                                    <value></value>
+                                </configuration>
+                            </extensionConfiguration>
+                        </generateExtension>
+                    </generateExtensions>
+                </patternExtensions>
+                <patternLists>
+                    <patternList>
+                        <listId>Id1443f728c4111bd67117f7c873f</listId>
+                        <displayName>Routing Type</displayName>
+                        <systemList>false</systemList>
+                        <patternListItems>
+                            <patternListItem>
+                                <listItemId>Id1443f728c41f44d80903fbeadf3</listItemId>
+                                <displayName>Single Destination</displayName>
+                                <value>5061747465726E73216E6F5F726F7574696E67</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id1443f72afbde729d8051f4d3840</listItemId>
+                                <displayName>Specify Routes</displayName>
+                                <value>5061747465726E732173706563696669635F726F75746573</value>
+                            </patternListItem>
+                        </patternListItems>
+                        <systemListItems/>
+                    </patternList>
+                    <patternList>
+                        <listId>Id14449bec550642c2b87ae8b123c</listId>
+                        <displayName>Sample Type</displayName>
+                        <systemList>false</systemList>
+                        <patternListItems>
+                            <patternListItem>
+                                <listItemId>Id14449bec550f76cb1521cdcaf86</listItemId>
+                                <displayName>None</displayName>
+                                <value>5061747465726E732173616D706C655F6E6F6E65</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id14449bef68333e6961ad6e6659a</listItemId>
+                                <displayName>Single Destination</displayName>
+                                <value>5061747465726E73216E6F5F726F7574696E67</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id14449bf55abcb2f05908841c12d</listItemId>
+                                <displayName>Specify Routes</displayName>
+                                <value>5061747465726E732173706563696669635F726F75746573</value>
+                            </patternListItem>
+                        </patternListItems>
+                        <systemListItems/>
+                    </patternList>
+                </patternLists>
+                <specification>
+                    <projectName>FileToHTTPPattern</projectName>
+                    <relativePath>Pattern Specification</relativePath>
+                    <folders>
+                        <folder>
+                            <folderName>root</folderName>
+                            <relativePath></relativePath>
+                            <enabled>true</enabled>
+                            <files>
+                                <file>
+                                    <fileName>after.htm</fileName>
+                                    <relativePath>after.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>before.htm</fileName>
+                                    <relativePath>before.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>constraints.htm</fileName>
+                                    <relativePath>constraints.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>overview.htm</fileName>
+                                    <relativePath>overview.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>parameters.htm</fileName>
+                                    <relativePath>parameters.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>recorddistributor.ai</fileName>
+                                    <relativePath>recorddistributor.ai</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>recorddistributor.gif</fileName>
+                                    <relativePath>recorddistributor.gif</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>recorddistributor.htm</fileName>
+                                    <relativePath>recorddistributor.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>recordprocessor.htm</fileName>
+                                    <relativePath>recordprocessor.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>routeflow.htm</fileName>
+                                    <relativePath>routeflow.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>sample.htm</fileName>
+                                    <relativePath>sample.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                            </files>
+                            <folders/>
+                        </folder>
+                    </folders>
+                </specification>
+                <patternTables>
+                    <patternTable>
+                        <tableId>Id1443f927262f23a7a490bf6be28</tableId>
+                        <displayName>Namespace table</displayName>
+                        <columns>
+                            <column>
+                                <columnId>namespaceprefix</columnId>
+                                <referenceId>Id1443f92726357fdac38a4443fc6</referenceId>
+                                <displayName>Namespace prefix</displayName>
+                                <mandatory>true</mandatory>
+                                <helpText></helpText>
+                            </column>
+                            <column>
+                                <columnId>namespaceuri</columnId>
+                                <referenceId>Id1443f93ced6424d8a55a6774d4</referenceId>
+                                <displayName>Namespace URI</displayName>
+                                <mandatory>true</mandatory>
+                                <helpText></helpText>
+                            </column>
+                        </columns>
+                    </patternTable>
+                    <patternTable>
+                        <tableId>Id1443f941b49409aaa1d5f5e74da</tableId>
+                        <displayName>Routing table</displayName>
+                        <columns>
+                            <column>
+                                <columnId>keylocation</columnId>
+                                <referenceId>Id1443f941b495bb6a8bc0af1531</referenceId>
+                                <displayName>Key location</displayName>
+                                <mandatory>true</mandatory>
+                                <helpText></helpText>
+                            </column>
+                            <column>
+                                <columnId>keyvalue</columnId>
+                                <referenceId>Id1443f94374696ff983a1b594f2</referenceId>
+                                <displayName>Key value</displayName>
+                                <mandatory>true</mandatory>
+                                <helpText></helpText>
+                            </column>
+                            <column>
+                                <columnId>webserviceuri</columnId>
+                                <referenceId>Id1443f9448068fdbff84fab6e469</referenceId>
+                                <displayName>Web Service URI</displayName>
+                                <mandatory>true</mandatory>
+                                <helpText></helpText>
+                            </column>
+                        </columns>
+                    </patternTable>
+                </patternTables>
+            </pattern>
+        </patterns>
+        <buildOptions>
+            <createTranslationPlugins>false</createTranslationPlugins>
+        </buildOptions>
+    </plugin>
+</capture:plugins>
