@@ -1,0 +1,711 @@
+<!-- 
+/*******************************************************************************
+ * Copyright (c) 2014 IBM Corporation and other Contributors
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM - initial implementation
+ *******************************************************************************/
+ -->
+<html>
+<head>
+<style type="text/css">
+body {
+			margin: 0;
+			padding: 0;
+			background-color: #F6F8FA;
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+		}
+		
+		h1, h2, h3 {
+			font-weight: 200;
+			line-height: 1.1;
+		}
+		
+		img {
+			border: 0;
+		}
+		
+		p {
+		 line-height: 35px;
+		}
+		
+		ol li {
+		margin-top:10px;
+		}
+		
+		#header {
+			background-color: #00B2EF;
+			padding:30px;
+			height:100px;
+		}
+		
+		#header h1 {
+			color: #FFFFFF;
+			width: 60%;
+			float:left;
+		}
+
+		#header .nav {
+			padding: 0;
+			margin:0;
+			list-style: none;
+			float:right;
+		}
+		
+		#header .nav li {
+			display:inline-block;
+			float:left;
+			margin-left:50px;
+			width:50px;
+		}
+		#header .nav li h3 {
+			color: #FFFFFF;
+			text-decoration: none;
+		}
+ 		
+		.content {
+			padding:10px;
+			padding-top:20px;
+			display: none;
+		}
+		
+		.content .left {
+			width:70%;
+			float:left;
+		}
+		
+		.content .right {
+			width:25%;
+			float:left;
+			margin-left:20px;
+		}
+		
+		.content.hidden {
+			display:none;
+		}
+		
+		.box {
+			background-color: #FFFFFF;
+			padding:20px;
+			margin-bottom:50px;
+			min-height: 150px;
+			height:auto !important;
+			height:150px;
+		}
+		
+		.box .contentWrapper {
+			padding-left:80px;
+		}
+		
+		.box .header {
+			padding-bottom:45px;
+			margin-bottom:20px;
+			border-bottom: 1px solid #00B2EF;
+		}
+		
+		.box .header h2 {
+			padding:0;
+			margin:0;
+			float:left;
+			width:60%;
+			padding-bottom:15px;
+		}
+		
+		.box .header .action {
+			float:right;
+		}
+		
+		
+		.boxContent {
+			overflow: hidden;
+		}
+		
+		.boxContent ul {
+			padding:0;
+			margin:0;
+			list-style: none;
+		}
+		
+		.boxContent ul {
+			list-style-type: disc;
+			padding:20px;
+		}
+		
+		.boxContent ul li {
+			padding:10px;
+		}
+		
+		.button {
+			background-color: #17AF4B;
+			color: #FFFFFF;
+			padding:10px;
+			text-decoration:none;
+		}
+		
+		#logViewer {
+			display:none;
+		}
+		
+		#logViewer p {
+			font-size:14px;
+		}
+		
+		
+		
+		.box.step {
+			padding:30px;
+		}
+		
+		.box.step .header {
+			
+		}
+		
+		.box.step .header h2 {
+			width: 50%;
+		}
+		
+		.box.step .num {
+			font-size:80px;
+			color: #e1e1e1;
+			background-color: #FFFFFF;
+			float:left;
+		}
+		
+		.box.step .boxContent {
+			text-align: justify;
+		}
+		
+		.box.disabled {
+			height: 50px !important;
+			min-height: 0;
+			padding: 10px;
+			padding-top:15px;
+		}
+		
+		.box.disabled .num {
+			padding-left: 10px;
+		}
+		
+		
+		.box.disabled .header {
+			border:0;
+			padding:0;
+			margin:0;
+		}
+		
+		.box.disabled .header h2 {
+			font-size: 40px !important;
+		}
+		
+		.box.disabled .boxContent, .box.disabled .action {
+			display:none;
+		}
+		
+		.box.disabled .num {
+			font-size:40px;
+		}
+		
+/** Flow Explorer **/
+
+	.flowExplorer {
+		display:none;
+	}
+	
+	.flowCanvas {
+		border: 1px dotted #000;
+		padding:20px
+	}
+	
+	.flowCanvas img {
+	      display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	    text-align: center;
+	}
+</style>
+
+<script type="text/javascript">
+
+var SERVER_PORT = {%port%};
+
+window.onload = function() {
+	gotoPage('home');
+	new DataInjector();
+}
+
+var exploreFlow = function(flowid) {
+	
+	if (currentFlow != null) {
+		var currentFlowExplorer = document.getElementById(currentFlow);
+		currentFlowExplorer.style.display = "none";
+	}
+	
+	var flowExplorerId = "flow_"+flowid;
+	var flowExplorer = document.getElementById(flowExplorerId);
+	flowExplorer.style.display = "block";
+	currentFlow = flowExplorerId;
+}
+
+var onFlowSelection = function() {
+	 var flowSelection = document.getElementById("flowSelection");
+     var selectedFlow = flowSelection.options[flowSelection.selectedIndex].value;
+     exploreFlow(selectedFlow);
+}
+
+//Navigation
+var currentPageId = 'home';
+
+var pingInterval;
+var currentFlow;
+
+var gotoPage = function(id) {
+	onPageClose(currentPageId);
+	document.getElementById(window.currentPageId).style.display = 'none';
+	document.getElementById(id).style.display = 'block';
+	onPageOpen(id);
+	window.currentPageId = id;
+}
+
+var onPageOpen = function(pageId) {
+	switch (pageId) {
+	case 'home':
+	break;
+	case 'test':
+		//pingServer('http://localhost:'+SERVER_PORT);
+		pingInterval = setInterval(function(){pingServer('http://localhost:3000')},10000);
+	break;
+	case 'explore':
+		
+
+		
+		exploreFlow("recorddistributor");
+	
+		
+	break;
+	}
+}
+
+var onPageClose = function(pageId) {
+	switch (pageId) {
+	case 'home':
+	break;
+	case 'test':
+		clearInterval(pageId);
+	break;
+	case 'explore':
+		
+	break;
+	}
+}
+
+
+function setStatus(file) {
+	window.status = file;
+	window.status = "";
+};
+
+
+// Network stuff
+
+var _receivedHeaders = false;
+var _receivedData = false;
+var xmlhttp = null;
+var _sampleStarted = false;
+
+var _send = function(url, callback, errorCallback, justPing) {
+	
+	_receivedHeaders = false;
+	_receivedData = false;
+	
+	if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+	
+
+	xmlhttp.onreadystatechange = function() {
+		var state = self.xmlhttp.readyState;
+		
+		switch (state) {
+			case 2: //HEADERS_RECEIVED
+				_receivedHeaders = true;	
+			break;
+			case 3: //LOADING
+				_receivedData = true;
+			break;
+			case 4: //DONE 
+				if (_receivedHeaders || _receivedData) {
+					callback(xmlhttp);
+				} else {
+					errorCallback();
+				}
+			break;
+		}
+		
+    }
+	
+	if (justPing) {
+		xmlhttp.open("HEAD", url, true);
+	} else {
+		xmlhttp.open("GET", url, true);
+	}
+   
+   xmlhttp.send(null);
+};
+
+
+var isAvailable = function(url, callback) {
+	this._send(url, function(response) {
+		callback(true);
+	}, function() {
+		callback(false);
+	}, true);
+};
+
+
+function pingServer(url) {
+	isAvailable(url, function(available) {
+		if (available) {
+			
+			if (_sampleStarted == false) {
+				_sampleStarted = true;
+				document.getElementById('status_webserver').style.color = 'green';
+				document.getElementById('startSample').innerHTML = 'Started';
+				document.getElementById('startSample').onclick = null;
+				onSampleStarted();
+			}
+
+		} else {
+			document.getElementById('status_webserver').style.color = 'red';
+			document.getElementById('startSample').innerHTML = 'Start Sample';
+			document.getElementById('startSample').onclick = startSample;
+			
+			if (_sampleStarted == true) {
+				onSampleStopped();
+			}
+			
+			_sampleStarted = false;
+		}
+	});
+};
+
+var onSampleStarted = function() {
+	document.getElementById('logViewer').style.display = 'block';
+	
+	//Read logs
+	
+	setInterval(function() {
+		this._send('http://localhost:'+SERVER_PORT+'/log.txt', function(response) {
+			document.getElementById('logViewerContent').innerHTML = response.responseText;
+		}, function() {
+			
+		}, false);
+	}, 5000);
+};
+
+var onSampleStopped = function() {
+	document.getElementById('logViewer').style.display = 'none';
+};
+
+function startSample() {
+	document.getElementById('startSample').onclick = null;
+	document.getElementById('startSample').innerHTML = 'Loading';
+	setStatus('/jkhkj_HTTP-oneway_sample/webserver/start_server.bat');
+}
+
+function openInputDirectory() {
+	setStatus('/jkhkj_HTTP-oneway_sample/open_input_directory.bat');
+}
+
+//Sample data injector
+var DataInjector = function() {
+	var self = this;
+	var dataSelector = document.getElementById('sampleDataInjectorFileSelector');
+	dataSelector.onchange = function() {
+		var selectedDataOption = dataSelector.options[dataSelector.selectedIndex].value;
+		
+		switch (selectedDataOption) {
+			case 'record1':
+				self.updateData('{"id": "001254","name": "John doe","email": "john.doe@httponeway","city": "Birmingham","country": "United Kingdom"}');
+			break;
+			case 'record2':
+				self.updateData('{"id": "054555","name": "Bob Smith","email": "bob.smith@httponeway","city": "New York","country": "United States"}');
+			break;
+			case 'record3':
+				self.updateData('{"id": "1845412","name": "Peter Cash","email": "peter.cash@httponeway","city": "Toronto","country": "Canada"}');
+			break;
+		}
+	};
+	
+	document.getElementById('sampleDataInjectorSend').onclick = function() {
+		var selectedDataOption = dataSelector.options[dataSelector.selectedIndex].value;
+		
+		var data = document.getElementById('sampleDataInjectorData').value;
+		var url = "http://localhost:"+SERVER_PORT+"/action/createfile?filepath="+selectedDataOption+"&data="+data;
+	
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		  }
+		else
+		  {// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		  }
+		xmlhttp.onreadystatechange=function()
+		  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    {
+		    	
+		    }
+		  }
+		xmlhttp.open("GET", url,true);
+		xmlhttp.send();
+		
+		return false;
+	};
+};
+
+DataInjector.prototype.updateData = function(data) {
+	document.getElementById('sampleDataInjectorData').innerText = data;
+}
+
+</script>
+
+</head>
+<body>
+<div id="header">
+	<h1>HTTP-oneway Pattern</h1>
+	<ul class="nav">
+		<li id="overviewPattern"><a href="#" onclick="gotoPage('home');"><h3>HOME</h3></a></li>
+		<li id="testPattern"><a href="#" onclick="gotoPage('test');"><h3>TEST</h3></a></li>
+		<li id="explorePattern"><a href="#" onclick="gotoPage('explore');"><h3>EXPLORE</h3></a></li>
+	</ul>
+</div>
+
+<div class="content" id="home">
+	<div class="left">
+		<div class="box">
+				<div class="header">		
+					<h2>About the pattern</h2>
+				</div>
+				<div class="boxContent">
+					<p>Use the Record Distribution to HTTP: one-way pattern to connect file-based and transaction-based styles of integration.</p>
+					<p>Use this pattern in the following situations: </p>
+					<ul>
+						<li>You have batches of transactions that are received as files from local or remote systems. 
+						</li>
+						<li>Your transactions cannot be sent as individual transactions. For example: </li>
+						<li>Your target systems are designed to accept individual transactions. Such systems might take input from near real-time systems and from batch files, and therefore present a transactional interface. 
+						</li>
+						<li>You have batch files that contain transactions that must be distributed to one or more systems. 
+						</li>
+						<li>If any failures occur, it must be acceptable for the entire file to be reprocessed. 
+						</li>
+					</ul>
+				</div>
+		</div>
+		<div class="box">
+				<div class="header">		
+					<h2>About the pattern's sample</h2>
+				</div>
+				<div class="boxContent">
+					<p>A sample web service and data records have been included in the pattern instance to provide an out-of-the-box demonstration of the pattern's functionality.<p>
+					<p><a href="#" onclick="gotoPage('test')" class="button">Click here</a> to access the interactive guide on how to test the pattern with the sample web service and records provided</p>
+				</div>
+		</div>
+	</div>
+	<div class="right">
+		<div class="box">
+				<div class="header">		
+					<h2>Flows</h2>
+				</div>
+				<div class="boxContent">
+					<ul>
+						<li><a href="#" onclick="setStatus('/jkhkj_HTTP one-way/RecordDistributor.msgflow')">RecordDistributor.msgflow</a></li>
+					</ul>
+				</div>
+		</div>
+		<div class="box">
+				<div class="header">		
+					<h2>Subflows</h2>
+				</div>
+				<div class="boxContent">
+					<ul>
+						<li><a href="#" onclick="setStatus('/jkhkj_HTTP one-way/RecordProcessor.subflow')">RecordProcessor.subflow</a></li>
+						<li><a href="#" onclick="setStatus('/jkhkj_HTTP one-way/Route.subflow')">Route.subflow</a></li>
+					</ul>
+				</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="content" id="test">
+	<div class="left">
+		<div class="box step">
+			<div class="num">1</div>
+			<div class="contentWrapper">
+				<div class="header">		
+					<h2>Deploy the pattern &amp; run the sample</h2>
+
+				</div>
+				<div class="boxContent">
+					<p>To test the pattern with the sample data: <p>
+					<ul>
+						<li>Deploy the pattern's application to an integration node</li>
+						<li>Click <a class="button" href="#" id="startSample">Start Sample</a> to run the sample web service provided.</li>
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="box step">
+			<span class="num">2</span>
+			<div class="contentWrapper">
+				<div class="header">		
+					<h2>Send data</h2>
+				</div>
+				<div class="boxContent">
+					<p>To test the pattern with the sample data, either move the JSON record files provided in the resources project (jhkj_HTTP-oneway_sample) 
+					manually to the <a class="button" href="#" id="openInputDirectory" onclick="openInputDirectory()">input directory</a> 
+					or use the tool below to inject pre-set or custom records.</p>
+					<div class="sampleDataInjector">
+						Select a sample data file: <select id="sampleDataInjectorFileSelector">
+							<option disabled selected>Select Record</option>
+							<option value="record1">Record1.json</option>
+							<option value="record2">Record2.json</option>
+							<option value="record3">Record3.json</option>
+						</select>
+						<br/>
+						<textarea id="sampleDataInjectorData" cols="50" rows="10"></textarea>
+						<br/>
+						<br/>
+						<a href="#" id="sampleDataInjectorSend" class="button">Save record</a> in input directory
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="box step">
+			<span class="num">3</span>
+			<div class="contentWrapper">
+				<div class="header">
+				<h2>Monitor</h2>
+				</div>
+				<div class="boxContent">
+					<p>Using the "Capture Test Data" feature, you can capture and monitor the record data as the are passing through the flow. To do so:</p>
+					<ol>
+						<li>Open the <a href="#" onclick="setStatus('/jkhkj_HTTP one-way/RecordDistributor.msgflow')" class="button">Record Processing</a> flow</a></li>
+						<li>Right click on the canvas area and select the "Capture Test Data" option from the menu.</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="right">
+		<div class="box">
+				<div class="header">
+					<h2>Status</h2>
+				</div>
+				<div class="boxContent">
+					<p>Status of the prerequisites needed to run the pattern and sample</p>
+					<ul>
+						<li id="status_webserver">Web Server on http://localhost:{%port%}</li>
+					</ul>
+				</div>
+			</div>
+		
+		
+		<div class="box" id="logViewer">
+				<div class="header">
+					<h2>Activity Viewer</h2>
+				</div>
+				<div class="boxContent">
+					<p>Below is a log of all records processed by the web service.</p>
+					<ul id="logViewerContent">
+						
+					</ul>
+				</div>
+			</div>
+	</div>
+</div>
+
+<div class="content" id="explore">
+	<div class="full">
+		<div class="box">
+				<div class="header">		
+					<h2>Explore the pattern</h2>
+				</div>
+				<div class="boxContent">
+					<p>Use the flow explorer below to explore the flows that have been included in this pattern instance.</p>
+				</div>
+		</div>
+		<div class="box">
+				<div class="header">		
+					<h2>Flow Explorer</h2>
+					<div class="action">
+					<label>Select a Flow/Subflow</label>
+					<select id="flowSelection" onchange="onFlowSelection()">
+						<option value="recorddistributor">RecordDistributor.msgflow</option>
+						<option value="recordprocessor">RecordProcessor.subflow</option>
+						<option value="route">Route.subflow</option>
+					</select>
+					</div>
+				</div>
+				<div class="boxContent">
+					<div class="flowExplorer" id="flow_recorddistributor">
+						<div class="flowInfo">
+							<p>The flow performs the following actions:</p>
+							<ol>
+								<li>A file is selected for processing in accordance with the file input parameters. 
+								</li>
+								<li>Records are read from the file in accordance with the record detection parameters. Each record is processed within a transaction. If validation is specified, the record is validated against a message set. 
+								</li>
+								<li>The Route subflow is called to determine the correct HTTP destination and the record is sent to the target web service. By default, a record is sent to a web service in the same format as it was in when read from the file. If required, you can transform the record to another format by customizing the RecordProcessor subflow. 
+								</li>
+								<li>If errors occur, such as a failure to read a record or a failure to send a record to a web service, then an error message is written to the system event log and the flow is backed out. The file is written to the backout directory.</li>
+								<li>The flow ends successfully and the file is moved to the archive subdirectory. 
+								</li>
+							</ol>
+						</div>
+						<div class="flowCanvas">
+							<p>Click on a node in the flow below for detailed information</p>
+							<p><img  usemap="#recorddistrbutor_imagemap" src="recorddistributorflow.png" /></p>
+							<map  id="recorddistrbutor_imagemap">
+							<area id="file_input" alt="The File Input node monitors the directory ....." title="3423" href="#" shape="rect" coords="10,111,84,175" style="outline:none;" target="_self"     />
+							<area id="record_processor" alt="Use this subflow to add your custom record processing logic" title="" href="#" shape="rect" coords="163,112,288,176" style="outline:none;" target="_self"     />
+							<area id="route_subflow" alt="The Route subflow contains routing logic based on the routing option you selected. Edit this subflow to add/modify the routing logic" title="" href="#" shape="rect" coords="314,110,388,174" style="outline:none;" target="_self"     />
+							<area id="http_request" alt="The HTTP Request node sends the processed record to the defined webservices" title="" href="#" shape="rect" coords="509,114,615,178" style="outline:none;" target="_self"     />
+							</map>
+							
+						</div>
+					</div>
+					<div class="flowExplorer" id="flow_recordprocessor">
+						<div class="flowCanvas">
+							<p>Click on a node in the flow below for detailed information</p>
+							<p><img src="recordprocessorflow.png" /></p>
+						</div>
+					</div>
+					<div class="flowExplorer" id="flow_route">
+						<div class="flowCanvas">
+							<p>Click on a node in the flow below for detailed information</p>
+							<p><img src="routeflow.png" /></p>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

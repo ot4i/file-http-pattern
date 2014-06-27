@@ -1,83 +1,67 @@
+/*******************************************************************************
+ * Copyright (c) 2014 IBM Corporation and other Contributors
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM - initial implementation
+ *******************************************************************************/
 package com.ibm.etools.mft.pattern.fp.rd.http.code;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SummaryFileGenerator {
-	private final static String HTML_CONTENT = "<html>\r\n" + 
-			"<head>\r\n" + 
-			"<title>Record Distribution to HTTP: one-way pattern</title>\r\n" + 
-			"</head>\r\n" + 
-			"<body>\r\n" + 
-			"		<h1 class=\"topictitle1\">Using the sample data with the \r\n" + 
-			"	<span>Record Distribution to HTTP: one-way</span> pattern</h1>\r\n" + 
-			"	<p class=\"shortdesc\">To test the pattern without creating your own input data and HTTP web service, \r\n" + 
-			"	you can use the sample data that has been provided with this pattern instance.</p>\r\n" + 
-			"	\r\n" + 
-			"	<p><b>Note:</b> To run the HTTP web services that are provided with the pattern, you must have the Node.js runtime environment installed on your computer. The \r\n" + 
-			"	Node.js runtime environment can be downloaded from the <span>Node.js web site: <a href=\"http://nodejs.org/download/\" title=\"Node.js web site\">http://nodejs.org/download/</a></span>.\r\n" + 
-			"	</p> \r\n" + 
-			"<h4>Index</h4>\r\n" + 
-			"<ul>\r\n" + 
-			"<li><a href=\"#about\">About the sample data</a></li>\r\n" + 
-			"<li><a href=\"#running\">Running the web server</a></li>\r\n" + 
-			"</ul>\r\n" + 
-			"\r\n" + 
-			"<h2 id=\"about\">About the sample data</h2>\r\n" + 
-			"\r\n" + 
-			"	<p>There are two sample configurations available with the <span>Record Distribution to HTTP: one-way</span> pattern.\r\n" + 
-			"	</p>\r\n" + 
-			"	\r\n" + 
-			"	<p>If you have selected the <b>Single Destination</b> as the sample configuration, then the records that are extracted from the files are all sent \r\n" + 
-			"	to the Default web service.</p>\r\n" + 
-			"	<p>If you have selected <b>Three Possible Destinations</b> as the sample configuration, then the records that are extracted from the files are \r\n" + 
-			"	examined before they are routed to a web service:\r\n" + 
-			"		<ul>\r\n" + 
-			"			<li>If the Country field in the record is set to \"United Kingdom\", the record is routed to the UK web service.</li>\r\n" + 
-			"			<li>If the Country field in the record is set to \"United States\", the record is routed to the US web service.</li>\r\n" + 
-			"			<li>If the Country field in the record is not set to \"United Kingdom\" or \"United States\", \r\n" + 
-			"			the record is routed to the Default web service.</li>	\r\n" + 
-			"		</ul>		\r\n" + 
-			"	</p>\r\n" + 
-			"	\r\n" + 
-			"	<p>The following sample resources have been created when you generated the pattern's instance:\r\n" + 
-			"	<ul>\r\n" + 
-			"		<li>An input directory where you add the files to be processed by the application:\r\n" + 
-			"			<ul><li>On Windows: <span class=\"filepath\"><tt><i>workspace</i>\\<i>app_name</i>_HTTP-oneway_sample\\Input_Directory</tt></span></li>\r\n" + 
-			"			<li>On Linux: <span class=\"filepath\"><tt><i>workspace</i>/<i>app_name</i>_HTTP-oneway_sample/Input_Directory</tt></span></li></ul>\r\n" + 
-			"			where <i>workspace</i> is your Integration Studio workspace directory, and <i>app_name</i> is the name of your application. </li><br/>\r\n" + 
-			"		<li>Three sample files that contain user records:\r\n" + 
-			"			<ul><li>One record has a Country field set to \"United Kingdom\".</li>\r\n" + 
-			"			<li>One record has a Country field set to \"United States\".</li>\r\n" + 
-			"			<li>One record has a Country field set to \"Canada\".</li></ul></li><br/>\r\n" + 
-			"		<li>A Node.js web server with three web services available from the following URLs:\r\n" + 
-			"			<ul><li>UK web service: <tt>http://localhost:<i>port</i>/country/uk.html</tt></li>\r\n" + 
-			"			<li>US web service: <tt>http://localhost:<i>port</i>/country/us.html</tt></li>\r\n" + 
-			"			<li>Default web service: <tt>http://localhost:<i>port</i>/country/default.html</tt></li></ul></li> \r\n" + 
-			"			where <i>port</i> is an available port. By default the port will be <tt>3000</tt>, unless this port is not available.\r\n" + 
-			"	</ul>\r\n" + 
-			"		</p>\r\n" + 
-			"<h2 id=\"running\">Running the web server</h2>\r\n" + 
-			"<p>To run the sample web server on Windows, navigate to <tt><i>workspace</i>/<i>app_name</i>_HTTP-oneway_sample/webserver</tt> and run the script <tt><i>start_server.bat</i></tt></p>\r\n" + 
-			"<p>To run the sample web server on Linux, navigate to <tt><i>workspace</i>/<i>app_name</i>_HTTP-oneway_sample/webserver</tt> and run the script <tt><i>start_server.sh</i></tt></p>\r\n" + 
-			"\r\n" + 
-			"</body>\r\n" + 
-			"</html>";
 	
+	
+	private final static String SUMMARY_RESOURCES_PATH = "summary_resources";
+	private HashMap<String, String> properties;
+	private ArrayList<String> additionalResources;
+	
+	public SummaryFileGenerator() {
+		this.properties = new HashMap<String, String>();
+		this.additionalResources = new ArrayList<String>();
+	}
+	
+	public void addProperty(String name, String value) {
+		this.properties.put(name, value);
+	}
+	
+	public void addAdditionalResource(String file) {
+		this.additionalResources.add(file);
+	}
+	
+	/**
+	 * Generate the summary file and all additional resources
+	 * @param workspaceLocation
+	 * @param patternInstanceName
+	 */
 	public void generate(String workspaceLocation, String patternInstanceName) {
-		String summaryFileDest = workspaceLocation + File.separator + patternInstanceName + File.separator + "Pattern Configuration" + File.separator + 
-				patternInstanceName + "_summary.html";
+		
+		String patternInstancePath = workspaceLocation + File.separator + patternInstanceName + File.separator + "Pattern Configuration";
+		
+		String summaryFileDest = patternInstancePath + File.separator + patternInstanceName + "_summary.html";
 		
 		Writer writer = null;
 		
 		try {
 			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(summaryFileDest)));
-			writer.write(HTML_CONTENT);
+			//writer.write(this.parseContent(HTML_CONTENT));
+			
+			writer.write(this.parseContent(this.getSummaryFileContent()));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -92,5 +76,111 @@ public class SummaryFileGenerator {
 				e.printStackTrace();
 			}
 		}
+		
+		//Add additional resources
+		for (String filename : this.additionalResources) {
+			String destPath = patternInstancePath + File.separator + filename;
+			this.copyAdditionalResourceFile(filename, destPath);
+		}
+	}
+	
+	/**
+	 * Copy an additional resources file to the pattern's instance directory
+	 * @param filename
+	 * @param dest
+	 */
+	private void copyAdditionalResourceFile(String filename, String dest) {
+		InputStream  reader = SummaryFileGenerator.class.getResourceAsStream(
+						SUMMARY_RESOURCES_PATH + File.separator + filename);
+		
+		FileOutputStream writer = null;
+		
+		try {
+			writer = new FileOutputStream(dest);
+		
+			byte[] buffer = new byte[4096]; //Init buffer
+			int byteCount;
+			//Copy bytes
+			while( (byteCount = reader.read(buffer)) >= 0 ) {
+			  writer.write(buffer, 0, byteCount);
+			}
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	}
+	
+	/**
+	 * Get the HTML content of the summary file
+	 * @return
+	 */
+	private String getSummaryFileContent() {
+		BufferedReader reader = new BufferedReader(
+				new InputStreamReader(SummaryFileGenerator.class.getResourceAsStream(SUMMARY_RESOURCES_PATH + File.separator + "summary.html")));
+		String content = "";
+		try {
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				content += line + '\n';
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		
+		return content;
+	}
+	
+	/**
+	 * Go through content and replace variables with values
+	 * @param content
+	 * @return
+	 */
+	private String parseContent(String content) {
+		
+		String parsedContent = "";
+		
+		int curIndex = -1;
+		
+		while (++curIndex < content.length()) {
+			
+			char curChar = content.charAt(curIndex);
+			
+			if (curIndex + 1 < content.length()) {
+				
+				char nextChar = content.charAt(curIndex + 1);
+				
+				if (curChar == '{' && nextChar == '%') {
+					curIndex++;
+					String curVar = ""; 
+					
+					do {
+						curChar = content.charAt(++curIndex);
+						curVar += curChar;
+					} while (curIndex < content.length() &&
+							(content.charAt(curIndex + 1) != '%' && 
+							content.charAt(curIndex + 2) != '}'));
+					
+					if (this.properties.containsKey(curVar)) {
+						parsedContent += this.properties.get(curVar);
+					}
+					
+					curIndex += 2; //Skip % and }
+					
+				} else {
+					parsedContent += curChar;
+				}
+			} else { //fix to missing last char
+				parsedContent += curChar;
+			}
+			
+			
+		}
+	
+		
+		return parsedContent;
 	}
 }

@@ -125,8 +125,12 @@ public class PatternGenerator implements GeneratePatternInstanceTransform {
 			this.createWebServerScript();
 
 			// Generate Summary Page
-			new SummaryFileGenerator().generate(workspaceLocation,
-					this.patternInstanceName);
+			SummaryFileGenerator sfg = new SummaryFileGenerator();
+			sfg.addProperty("port", String.valueOf(this.getHTTPPort()));
+			sfg.addAdditionalResource("recorddistributorflow.png");
+			sfg.addAdditionalResource("routeflow.png");
+			sfg.addAdditionalResource("recordprocessorflow.png");
+			sfg.generate(workspaceLocation, this.patternInstanceName);
 		}
 
 	}
@@ -136,6 +140,24 @@ public class PatternGenerator implements GeneratePatternInstanceTransform {
 	 * 
 	 */
 	private void createWebServerScript() {
+	
+		int httpPortNumber = this.getHTTPPort();
+
+		String artifacts_path = this.patternInstanceManager
+				.getWorkspaceLocation()
+				+ File.separator
+				+ patternInstanceName
+				+ "_" + SAMPLE_ARTIFACTS_PROJECT_NAME + File.separator;
+		String webserver_path = artifacts_path + "webserver" + File.separator;
+
+		this.writeStartServerScript(webserver_path + "start_server.bat",
+				httpPortNumber); // Windows
+		this.writeStartServerScript(webserver_path + "start_server.sh",
+				httpPortNumber); // Linux
+
+	}
+
+	private int getHTTPPort() {
 		// Get Port
 		int httpPortNumber = 3000;
 		URL webserviceURL;
@@ -157,19 +179,8 @@ public class PatternGenerator implements GeneratePatternInstanceTransform {
 		} catch (MalformedURLException e2) {
 			e2.printStackTrace();
 		}
-
-		String artifacts_path = this.patternInstanceManager
-				.getWorkspaceLocation()
-				+ File.separator
-				+ patternInstanceName
-				+ "_" + SAMPLE_ARTIFACTS_PROJECT_NAME + File.separator;
-		String webserver_path = artifacts_path + "webserver" + File.separator;
-
-		this.writeStartServerScript(webserver_path + "start_server.bat",
-				httpPortNumber); // Windows
-		this.writeStartServerScript(webserver_path + "start_server.sh",
-				httpPortNumber); // Linux
-
+		
+		return httpPortNumber;
 	}
 
 	/**

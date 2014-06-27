@@ -79,6 +79,7 @@ public class SampleConfigurationsLoader {
 		try {
 			
 			dBuilder = dbFactory.newDocumentBuilder();
+
 			Document doc = dBuilder.parse(new InputSource(new StringReader(XML_DATA)));
 			doc.getDocumentElement().normalize();
 			

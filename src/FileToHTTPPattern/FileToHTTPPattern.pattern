@@ -6,7 +6,7 @@
     <displayName>Pattern Plug-in</displayName>
     <package>com.ibm.etools.mft.pattern.fp.rd.httponeway</package>
     <description>File Record Distribution using HTTP</description>
-    <version>0.1.0.0</version>
+    <version>0.2.0.0</version>
     <provider>IBM</provider>
     <categories/>
     <patterns>
@@ -19,7 +19,7 @@
         <schema/>
         <referencedProjects>
           <referencedProject>
-            <referencedProjectId>Id146529a9a0c2bcc1d8c72e5e3ba</referencedProjectId>
+            <referencedProjectId>Id146dc86f77bf8749a3e26e27d39</referencedProjectId>
             <displayName>HTTP one-way</displayName>
             <enabled>true</enabled>
             <customProject>false</customProject>
@@ -76,7 +76,7 @@
             </folders>
           </referencedProject>
           <referencedProject>
-            <referencedProjectId>Id146529a9a16b2a5be6c0879d9a5</referencedProjectId>
+            <referencedProjectId>Id146dc86f7f5b12c449065aa9ea1</referencedProjectId>
             <displayName>HTTP-oneway_sample</displayName>
             <enabled>true</enabled>
             <customProject>false</customProject>
@@ -579,7 +579,7 @@ If a row is included, both of the parameters must be included.&lt;/p>&#xD;
         <patternExtensions>
           <packageExtensions>
             <packageExtension>
-              <extensionId>Id146535061d0199e995ce6493c90</extensionId>
+              <extensionId>Id146dd28f4c23148ba0d8b5091cd</extensionId>
               <extensionClass>com.ibm.etools.mft.pattern.support.edit.pattern.PackagePatternEditorTransform</extensionClass>
               <extensionConfiguration/>
             </packageExtension>

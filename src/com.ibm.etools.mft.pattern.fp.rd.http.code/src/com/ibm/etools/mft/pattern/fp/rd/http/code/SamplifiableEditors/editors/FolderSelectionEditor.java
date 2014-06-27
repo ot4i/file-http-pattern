@@ -25,7 +25,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 
-import com.ibm.broker.config.appdev.patterns.ui.*;
+import com.ibm.broker.config.appdev.patterns.ui.PatternPropertyEditorSite;
 import com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.SampleConfigurationsLoader;
 import com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.TextConfig;
 
