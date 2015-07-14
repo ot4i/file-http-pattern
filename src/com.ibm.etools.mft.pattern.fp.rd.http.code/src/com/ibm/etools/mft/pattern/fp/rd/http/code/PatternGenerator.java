@@ -233,6 +233,11 @@ public class PatternGenerator implements GeneratePatternInstanceTransform {
 		fileInputNode.setInputDirectory(inputDirectory);
 		fileInputNode.setFilenamePattern(filenamePattern);
 		fileInputNode.setMessageDomainProperty(MESSAGE_DOMAIN);
+		
+		//SJP : 13 July 2015: Fix implementation: The following two lines for ccsid and encoding
+		fileInputNode.setMessageCodedCharSetIdProperty("1208") ;
+		fileInputNode.setMessageEncodingProperty("546");
+		
 		fileInputNode.setLocation(30, 190);
 		mainFlow.addNode(fileInputNode);
 
@@ -524,8 +529,14 @@ public class PatternGenerator implements GeneratePatternInstanceTransform {
 		// Create HTTPRequest Node
 		HTTPRequestNode httpRequestNode = new HTTPRequestNode();
 		httpRequestNode.setURLSpecifier(uri);
-		httpRequestNode.setMessageDomainProperty(MESSAGE_DOMAIN);
+		
+		//SJP : 13 July 2015: Fix implementation: Msg domain should be BLOB not JSON
+		// httpRequestNode.setMessageDomainProperty(MESSAGE_DOMAIN);
+		httpRequestNode.setMessageDomainProperty("BLOB");
+		
 		httpRequestNode.setNodeName(nodeName);
+		
+
 
 		// Position
 		Node routeNode = mainFlow.getNodeByName(ROUTE_NODE);
