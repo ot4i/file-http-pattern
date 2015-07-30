@@ -19,7 +19,7 @@
         <schema/>
         <referencedProjects>
           <referencedProject>
-            <referencedProjectId>Id146dc86f77bf8749a3e26e27d39</referencedProjectId>
+            <referencedProjectId>Id14edc38c34c6aaaac8956497c1e</referencedProjectId>
             <displayName>HTTP one-way</displayName>
             <enabled>true</enabled>
             <customProject>false</customProject>
@@ -63,20 +63,12 @@
                     <targets/>
                   </file>
                 </files>
-                <folders>
-                  <folder>
-                    <folderName>mqsi</folderName>
-                    <relativePath>mqsi</relativePath>
-                    <enabled>true</enabled>
-                    <files/>
-                    <folders/>
-                  </folder>
-                </folders>
+                <folders/>
               </folder>
             </folders>
           </referencedProject>
           <referencedProject>
-            <referencedProjectId>Id146dc86f7f5b12c449065aa9ea1</referencedProjectId>
+            <referencedProjectId>Id14edc38c360aeb3f4a1cd74c194</referencedProjectId>
             <displayName>HTTP-oneway_sample</displayName>
             <enabled>true</enabled>
             <customProject>false</customProject>
@@ -129,6 +121,18 @@
                       <file>
                         <fileName>server.js</fileName>
                         <relativePath>webserver/server.js</relativePath>
+                        <enabled>true</enabled>
+                        <targets/>
+                      </file>
+                      <file>
+                        <fileName>start_server.bat</fileName>
+                        <relativePath>webserver/start_server.bat</relativePath>
+                        <enabled>true</enabled>
+                        <targets/>
+                      </file>
+                      <file>
+                        <fileName>start_server.sh</fileName>
+                        <relativePath>webserver/start_server.sh</relativePath>
                         <enabled>true</enabled>
                         <targets/>
                       </file>
@@ -199,22 +203,6 @@
                     </events>
                   </slave>
                   <slave>
-                    <parameterId>noroutingweburl</parameterId>
-                    <events>
-                      <event>
-                        <type>valueChanged</type>
-                      </event>
-                    </events>
-                  </slave>
-                  <slave>
-                    <parameterId>specificroutesurl</parameterId>
-                    <events>
-                      <event>
-                        <type>valueChanged</type>
-                      </event>
-                    </events>
-                  </slave>
-                  <slave>
                     <parameterId>inputdir</parameterId>
                     <events>
                       <event>
@@ -224,6 +212,22 @@
                   </slave>
                   <slave>
                     <parameterId>specificroutesrouting</parameterId>
+                    <events>
+                      <event>
+                        <type>valueChanged</type>
+                      </event>
+                    </events>
+                  </slave>
+                  <slave>
+                    <parameterId>noroutingweburl</parameterId>
+                    <events>
+                      <event>
+                        <type>valueChanged</type>
+                      </event>
+                    </events>
+                  </slave>
+                  <slave>
+                    <parameterId>specificroutesurl</parameterId>
                     <events>
                       <event>
                         <type>valueChanged</type>
@@ -579,7 +583,7 @@ If a row is included, both of the parameters must be included.&lt;/p>&#xD;
         <patternExtensions>
           <packageExtensions>
             <packageExtension>
-              <extensionId>Id146dd28f4c23148ba0d8b5091cd</extensionId>
+              <extensionId>Id14edc38df60196aa8d46e49ed8c</extensionId>
               <extensionClass>com.ibm.etools.mft.pattern.support.edit.pattern.PackagePatternEditorTransform</extensionClass>
               <extensionConfiguration/>
             </packageExtension>

@@ -1,9 +1,0 @@
-{
-  "name": "http-oneway-demo",
-  "description": "HTTP one-way Web Service demo",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "express": "3.10.x"
-  }
-}
