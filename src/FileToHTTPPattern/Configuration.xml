@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <capture:plugins>
     <modelVersion>1.0.0.0</modelVersion>
-    <plugin pluginLocale="en-GB" pluginPath="com/ibm/etools/mft/pattern/fp/rd/httponeway" pluginRootRelativePath="/" pluginRootAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/" pluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway" docPluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway.doc" nlsPluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway.nl1" nlsDocPluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway.doc.nl1" pluginRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway" pluginAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/com.ibm.etools.mft.pattern.fp.rd.httponeway" docRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc" docAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc" nlsRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway.nl1" nlsAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/com.ibm.etools.mft.pattern.fp.rd.httponeway.nl1" nlsDocRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc.nl1" nlsDocAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc.nl1">
+    <plugin pluginLocale="en-US" pluginPath="com/ibm/etools/mft/pattern/fp/rd/httponeway" pluginRootRelativePath="/" pluginRootAbsolutePath="F:/projects/IIBv10_PoT_build/IibWkspaces/Lab3PatternCorrection/" pluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway" docPluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway.doc" nlsPluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway.nl1" nlsDocPluginName="com.ibm.etools.mft.pattern.fp.rd.httponeway.doc.nl1" pluginRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway" pluginAbsolutePath="F:/projects/IIBv10_PoT_build/IibWkspaces/Lab3PatternCorrection/com.ibm.etools.mft.pattern.fp.rd.httponeway" docRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc" docAbsolutePath="F:/projects/IIBv10_PoT_build/IibWkspaces/Lab3PatternCorrection/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc" nlsRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway.nl1" nlsAbsolutePath="F:/projects/IIBv10_PoT_build/IibWkspaces/Lab3PatternCorrection/com.ibm.etools.mft.pattern.fp.rd.httponeway.nl1" nlsDocRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc.nl1" nlsDocAbsolutePath="F:/projects/IIBv10_PoT_build/IibWkspaces/Lab3PatternCorrection/com.ibm.etools.mft.pattern.fp.rd.httponeway.doc.nl1">
         <pluginId>Id1443f59b1356d64b6ad7e3280c4</pluginId>
         <displayName>Pattern Plug-in</displayName>
         <package>com.ibm.etools.mft.pattern.fp.rd.httponeway</package>
         <description>File Record Distribution using HTTP</description>
-        <version>0.1.0.0</version>
+        <version>0.2.0.0</version>
         <provider>IBM</provider>
         <categories/>
         <patterns>
-            <pattern patternKey="com_ibm_etools_mft_pattern_fp_rd_httponeway_pattern" patternPath="com/ibm/etools/mft/pattern/fp/rd/httponeway/pattern" resourcesPath=".." patternTemplatePath="pattern" patternRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway" patternAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/new_workspace/com.ibm.etools.mft.pattern.fp.rd.httponeway">
+            <pattern patternKey="com_ibm_etools_mft_pattern_fp_rd_httponeway_pattern" patternPath="com/ibm/etools/mft/pattern/fp/rd/httponeway/pattern" resourcesPath=".." patternTemplatePath="pattern" patternRelativePath="/com.ibm.etools.mft.pattern.fp.rd.httponeway" patternAbsolutePath="F:/projects/IIBv10_PoT_build/IibWkspaces/Lab3PatternCorrection/com.ibm.etools.mft.pattern.fp.rd.httponeway">
                 <patternId>Id1443f59b135b2c2dc56086343d0</patternId>
                 <package>com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern</package>
                 <parentPackage>com.ibm.etools.mft.pattern.fp.rd</parentPackage>
@@ -19,7 +19,7 @@
                 <schema/>
                 <referencedProjects>
                     <referencedProject>
-                        <referencedProjectId>Id146dc86f77bf8749a3e26e27d39</referencedProjectId>
+                        <referencedProjectId>Id14edc38c34c6aaaac8956497c1e</referencedProjectId>
                         <displayName>HTTP one-way</displayName>
                         <enabled>true</enabled>
                         <customProject>false</customProject>
@@ -63,20 +63,12 @@
                                         <targets/>
                                     </file>
                                 </files>
-                                <folders>
-                                    <folder>
-                                        <folderName>mqsi</folderName>
-                                        <relativePath>mqsi</relativePath>
-                                        <enabled>true</enabled>
-                                        <files/>
-                                        <folders/>
-                                    </folder>
-                                </folders>
+                                <folders/>
                             </folder>
                         </folders>
                     </referencedProject>
                     <referencedProject>
-                        <referencedProjectId>Id146dc86f7f5b12c449065aa9ea1</referencedProjectId>
+                        <referencedProjectId>Id14edc38c360aeb3f4a1cd74c194</referencedProjectId>
                         <displayName>HTTP-oneway_sample</displayName>
                         <enabled>true</enabled>
                         <customProject>false</customProject>
@@ -129,6 +121,18 @@
                                             <file fileName="server.js" isTransformOnGenerate="false" filePath="pattern/templates/HTTP-oneway_sample/webserver" fileExtension=".data">
                                                 <fileName>server.js</fileName>
                                                 <relativePath>webserver/server.js</relativePath>
+                                                <enabled>true</enabled>
+                                                <targets/>
+                                            </file>
+                                            <file fileName="start_server.bat" isTransformOnGenerate="false" filePath="pattern/templates/HTTP-oneway_sample/webserver" fileExtension=".data">
+                                                <fileName>start_server.bat</fileName>
+                                                <relativePath>webserver/start_server.bat</relativePath>
+                                                <enabled>true</enabled>
+                                                <targets/>
+                                            </file>
+                                            <file fileName="start_server.sh" isTransformOnGenerate="false" filePath="pattern/templates/HTTP-oneway_sample/webserver" fileExtension=".data">
+                                                <fileName>start_server.sh</fileName>
+                                                <relativePath>webserver/start_server.sh</relativePath>
                                                 <enabled>true</enabled>
                                                 <targets/>
                                             </file>
@@ -199,22 +203,6 @@
                                         </events>
                                     </slave>
                                     <slave>
-                                        <parameterId>noroutingweburl</parameterId>
-                                        <events>
-                                            <event>
-                                                <type>valueChanged</type>
-                                            </event>
-                                        </events>
-                                    </slave>
-                                    <slave>
-                                        <parameterId>specificroutesurl</parameterId>
-                                        <events>
-                                            <event>
-                                                <type>valueChanged</type>
-                                            </event>
-                                        </events>
-                                    </slave>
-                                    <slave>
                                         <parameterId>inputdir</parameterId>
                                         <events>
                                             <event>
@@ -224,6 +212,22 @@
                                     </slave>
                                     <slave>
                                         <parameterId>specificroutesrouting</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                    <slave>
+                                        <parameterId>noroutingweburl</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                    <slave>
+                                        <parameterId>specificroutesurl</parameterId>
                                         <events>
                                             <event>
                                                 <type>valueChanged</type>
@@ -579,7 +583,7 @@ If a row is included, both of the parameters must be included.&lt;/p&gt;
                 <patternExtensions>
                     <packageExtensions>
                         <packageExtension>
-                            <extensionId>Id146dcb7c2bfd7389eabb934a20f</extensionId>
+                            <extensionId>Id14edc38df60196aa8d46e49ed8c</extensionId>
                             <extensionClass>com.ibm.etools.mft.pattern.support.edit.pattern.PackagePatternEditorTransform</extensionClass>
                             <extensionConfiguration/>
                         </packageExtension>

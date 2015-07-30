@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Plugin.name
+Bundle-SymbolicName: com.ibm.etools.mft.pattern.fp.rd.httponeway.doc;singleton:=true
+Bundle-Version: 0.2.0.0
+Bundle-Vendor: IBM
+Bundle-Localization: plugin

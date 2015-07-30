@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="unqualified" targetNamespace="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern" xmlns="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:complexType name="Id1443f927262f23a7a490bf6be28">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="1" name="row">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="namespaceprefix" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="namespaceuri" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Id1443f941b49409aaa1d5f5e74da">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="1" name="row">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keylocation" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keyvalue" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="webserviceuri" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="Id1443f728c4111bd67117f7c873f">
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration value="5061747465726E73216E6F5F726F7574696E67">
+                <xsd:annotation>
+                    <xsd:documentation>Single Destination</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="5061747465726E732173706563696669635F726F75746573">
+                <xsd:annotation>
+                    <xsd:documentation>Specify Routes</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Id14449bec550642c2b87ae8b123c">
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration value="5061747465726E732173616D706C655F6E6F6E65">
+                <xsd:annotation>
+                    <xsd:documentation>None</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="5061747465726E73216E6F5F726F7574696E67">
+                <xsd:annotation>
+                    <xsd:documentation>Single Destination</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="5061747465726E732173706563696669635F726F75746573">
+                <xsd:annotation>
+                    <xsd:documentation>Specify Routes</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:element name="root" type="Root"/>
+    <xsd:complexType name="Root">
+        <xsd:sequence>
+            <xsd:element default="default" maxOccurs="1" minOccurs="1" name="instanceName" type="xsd:string"/>
+            <!-- Sample -->
+            <xsd:element default="5061747465726E732173616D706C655F6E6F6E65" maxOccurs="1" minOccurs="1" name="includesample" type="Id14449bec550642c2b87ae8b123c"/>
+            <!-- Input file -->
+            <xsd:element default="" maxOccurs="1" minOccurs="1" name="inputdir" type="xsd:string"/>
+            <xsd:element default="default" maxOccurs="1" minOccurs="1" name="filenamepattern" type="xsd:string"/>
+            <xsd:element default="false" maxOccurs="1" minOccurs="1" name="useftp" type="xsd:boolean"/>
+            <xsd:element default="" maxOccurs="1" minOccurs="0" name="ftpservice" type="xsd:string"/>
+            <!-- Routing -->
+            <xsd:element default="5061747465726E73216E6F5F726F7574696E67" maxOccurs="1" minOccurs="1" name="routingtype" type="Id1443f728c4111bd67117f7c873f"/>
+            <!-- Single Destination -->
+            <xsd:element default="" maxOccurs="1" minOccurs="1" name="noroutingweburl" type="xsd:string"/>
+            <!-- Specify Routes -->
+            <xsd:element default="" maxOccurs="1" minOccurs="1" name="specificroutesurl" type="xsd:string"/>
+            <xsd:element default="" maxOccurs="1" minOccurs="0" name="specificroutesnamespace" type="xsd:string"/>
+            <xsd:element default="" maxOccurs="1" minOccurs="1" name="specificroutesrouting" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
