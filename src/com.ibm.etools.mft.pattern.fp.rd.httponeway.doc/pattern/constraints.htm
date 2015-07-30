@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2014
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="abstract" content="Details about what you need to know, and what resources you must have before you can use the Record Distribution to HTTP: one-way pattern."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<title>Constraints on the use of the Record Distribution to HTTP: one-way pattern</title>
+</head>
+<body id="com.ibm.etools.mft.pattern.fp.rd.httponeway.constraints">
+	<h1 class="topictitle1">Constraints on the use of the 
+	<span>Record Distribution to HTTP: one-way</span> pattern</h1>
+
+<p class="shortdesc">A number of constraints apply when you use this pattern.</p>
+<p>You can use the 
+<span>Record Distribution to HTTP: one-way</span> pattern only if all of the following conditions are met:</p>
+<ul>
+	<li><b>It must be possible to read the input file as comprising a number of individual records.</b><br/>
+	Files can be processed if they contain fixed-length records, variable-length
+	records that are separated by a well-known delimiter, or variable-length records that
+	can be extracted by a parser; a technique referred to as 
+	<span class="mftobjpropval">Parsed Record Sequence</span>. 
+	You can use this technique to read a file
+	that contains multiple XML documents, and return each document as a record.
+	You cannot use this pattern to extract embedded records; 
+	for example, records within a single XML document.</li><br/>
+	<li><b>The integration node must be able to delete the source file.</b><br/>
+	Source files are removed from their original location and moved to the integration node; they are not read in place.</li><br/>
+	<li><b>The business function must be compatible with the redistribution of records after a system failure.</b><br/>
+	This pattern distributes the records reliably, but does not guard against duplicate records after a system failure.</li><br/>
+	<li><b>The business function must be compatible with the redistribution of records after a failure
+	to read a record from the file, or to route a record to a destination.</b><br/>
+	In this case, the whole file is moved to the backout directory<!-- and an error is written to the
+	error queue-->. You must arrange for the file to be resubmitted after the error is corrected.
+	When a file is resubmitted, all the records in the file are reprocessed, which might mean that the HTTP web service receives duplicate 
+	records.</li>
+	<!-- <li>If logging is required, the format that is used by this pattern is assumed 
+	to meet the requirements of your own environment.</li> -->
+</ul>
+	<p>
+	<a href="overview.htm#anchorBack" title="Back">Back to the Record Distribution to HTTP: one-way pattern specification</a>
+	</p>
+</body>
+</html>

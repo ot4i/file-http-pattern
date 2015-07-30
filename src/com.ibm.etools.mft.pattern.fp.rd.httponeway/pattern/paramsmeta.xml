@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<povs xmlns:patterns="http://www.ibm.com/patterns">
+    <simplePov
+        groupId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.instanceName" name="instanceName"/>
+    <simplePov
+        groupId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f5a93b9a887432db7e7e97" name="includesample">
+        <master>
+            <slave id="routingtype">
+                <event type="valueChanged"/>
+            </slave>
+            <slave id="inputdir">
+                <event type="valueChanged"/>
+            </slave>
+            <slave id="specificroutesrouting">
+                <event type="valueChanged"/>
+            </slave>
+            <slave id="noroutingweburl">
+                <event type="valueChanged"/>
+            </slave>
+            <slave id="specificroutesurl">
+                <event type="valueChanged"/>
+            </slave>
+            <slave id="specificroutesnamespace">
+                <event type="valueChanged"/>
+            </slave>
+        </master>
+    </simplePov>
+    <simplePov editorId="EditorId14473293d00d6df08ccc7f94310"
+        groupId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f7159cc70f5188c86560abc" name="inputdir">
+        <action type="custom"/>
+    </simplePov>
+    <simplePov
+        groupId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f7159cc70f5188c86560abc" name="filenamepattern"/>
+    <simplePov
+        groupId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f7159cc70f5188c86560abc" name="useftp">
+        <master>
+            <slave id="ftpservice">
+                <event type="valueChanged"/>
+            </slave>
+        </master>
+    </simplePov>
+    <simplePov
+        groupId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f7159cc70f5188c86560abc" name="ftpservice">
+        <action default="false" type="enablement">
+            <value conditionExpression="pp:getValue('useftp') = 'true'" valueExpression="true()"/>
+        </action>
+    </simplePov>
+    <simplePov
+        groupId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f71c2fe44dd7c3e27d37d4b" name="routingtype">
+        <action default="false" type="enablement">
+            <value
+                conditionExpression="pp:getValue('includesample') = 'sample_none'" valueExpression="true()"/>
+        </action>
+    </simplePov>
+    <simplePov editorId="EditorId1443f901c61bdd057b1290913f8"
+        groupId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f9005f0d0ccc2eb9f1a343" name="noroutingweburl">
+        <action type="custom"/>
+    </simplePov>
+    <simplePov editorId="EditorId1443f915bd797d0d1535e995a9"
+        groupId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f91238f10970b86f19b26fe" name="specificroutesurl">
+        <action type="custom"/>
+    </simplePov>
+    <simplePov editorId="EditorId1446433abba5fd3715d7f726693"
+        groupId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f91238f10970b86f19b26fe" name="specificroutesnamespace">
+        <action type="custom"/>
+    </simplePov>
+    <simplePov editorId="EditorId1446ed53aefd094b69b329e48e3"
+        groupId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f91238f10970b86f19b26fe" name="specificroutesrouting">
+        <action type="custom"/>
+    </simplePov>
+    <Group
+        id="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.instanceName" visible="false"/>
+    <Group description="description" expand="false"
+        id="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f5a93b9a887432db7e7e97"
+        name="Id1443f5a93b9a887432db7e7e97" visible="true"/>
+    <Group description="description" expand="false"
+        id="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f7159cc70f5188c86560abc"
+        name="Id1443f7159cc70f5188c86560abc" visible="true"/>
+    <Group description="description" expand="false"
+        id="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f71c2fe44dd7c3e27d37d4b"
+        name="Id1443f71c2fe44dd7c3e27d37d4b" visible="true"/>
+    <Group description="description" expand="false"
+        id="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f9005f0d0ccc2eb9f1a343"
+        name="Id1443f9005f0d0ccc2eb9f1a343" visible="true">
+        <action default="false" type="visibility">
+            <value
+                conditionExpression="(pp:getValue('includesample') = 'sample_none' and pp:getValue('routingtype') = 'no_routing') or pp:getValue('includesample') = 'no_routing'" valueExpression="true()"/>
+        </action>
+    </Group>
+    <Group description="description" expand="false"
+        id="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.Id1443f91238f10970b86f19b26fe"
+        name="Id1443f91238f10970b86f19b26fe" visible="true">
+        <action default="false" type="visibility">
+            <value
+                conditionExpression="(pp:getValue('includesample') = 'sample_none' and pp:getValue('routingtype') = 'specific_routes') or pp:getValue('includesample') = 'specific_routes'" valueExpression="true()"/>
+        </action>
+    </Group>
+    <ReferencedProject name="_HTTP one-way"/>
+    <ReferencedProject name="_HTTP-oneway_sample"/>
+</povs>

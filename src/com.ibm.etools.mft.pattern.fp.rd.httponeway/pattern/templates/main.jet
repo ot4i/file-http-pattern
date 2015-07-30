@@ -1,0 +1,2 @@
+<% com.ibm.etools.mft.pattern.support.Generation.onGenerate(context, "com.ibm.etools.mft.pattern.fp.rd.httponeway", "Id1443f59b1356d64b6ad7e3280c4", "Id1443f59b135b2c2dc56086343d0", "pattern"); %>
+

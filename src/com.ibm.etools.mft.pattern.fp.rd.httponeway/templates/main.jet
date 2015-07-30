@@ -1,0 +1,18 @@
+<%@taglib id="org.eclipse.jet.workspaceTags" prefix="ws"%>
+<c:setVariable select="/*" var="root"/>
+<c:choose>
+    <c:when test="namespace-uri($root) = 'com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern'">
+        <c:include template="pattern/templates/main.jet"/>
+    </c:when>
+    <c:otherwise>
+        <c:log severity="error">
+            Unrecognised transform [<c:get select="namespace-uri($root)"/>]
+        </c:log>
+    </c:otherwise>
+</c:choose>
+
+<%-- In debug mode dump the input model --%>
+<c:if test="isVariableDefined('org.eclipse.jet.resource.project.name')">
+    <ws:file encoding="UTF-8" template="templates/dump.jet" path="{$org.eclipse.jet.resource.project.name}/dump.xml"/>
+</c:if>
+

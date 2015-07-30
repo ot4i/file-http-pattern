@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+    <extension point="org.eclipse.jet.transform">
+        <transform startTemplate="templates/main.jet" templateLoaderClass="org.eclipse.jet.compiled._jet_transformation">
+            <description>%Plugin.description</description>
+            <tagLibraries>
+                <importLibrary autoImport="true"
+                    id="org.eclipse.jet.controlTags" usePrefix="c"/>
+                <importLibrary autoImport="true"
+                    id="org.eclipse.jet.javaTags" usePrefix="java"/>
+                <importLibrary autoImport="true"
+                    id="org.eclipse.jet.formatTags" usePrefix="f"/>
+                <importLibrary autoImport="false"
+                    id="org.eclipse.jet.workspaceTags" usePrefix="ws"/>
+            </tagLibraries>
+        </transform>
+    </extension>
+    <extension point="com.ibm.etools.patterns.Pattern">
+        <resourceloader
+            class="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.PatternMessages" id="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern"/>
+        <pattern
+            doc="com.ibm.etools.mft.pattern.fp.rd.httponeway.doc/pattern/overview.htm"
+            id="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern"
+            name="%com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern.displayName"
+            parentPatternId="com.ibm.etools.mft.pattern.fp.rd"
+            povMetaXML="pattern/paramsmeta.xml"
+            povSchema="pattern/params.xsd"
+            povdoc="com.ibm.etools.mft.pattern.fp.rd.httponeway.doc/pattern/parameters.htm"
+            productId="com.ibm.etools.msgbroker.tooling.ide"
+            resourceLoaderId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern" transformId="com.ibm.etools.mft.pattern.fp.rd.httponeway"/>
+    </extension>
+    <extension point="org.eclipse.wst.xml.core.catalogContributions">
+        <catalogContribution id="default">
+            <public
+                publicId="com.ibm.etools.mft.pattern.fp.rd.httponeway.pattern" uri="pattern/params.xsd"/>
+        </catalogContribution>
+    </extension>
+    <extension id="EditorId14473293d00d6df08ccc7f94310" point="com.ibm.etools.patterns.ui.PatternEditorTypeContributor">
+        <EditorContributor
+            EditorId="EditorId14473293d00d6df08ccc7f94310"
+            EditorImpl="com.ibm.etools.mft.pattern.support.edit.extensions.custom.UserDefinedPropertyEditor"
+            PluginId="com.ibm.etools.mft.pattern.support.edit"
+            argSeparator="," arguments="com.ibm.etools.mft.pattern.fp.rd.http.code|com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.editors.FolderSelectionEditor|includesample|sampleContentId=input_directory_path"/>
+    </extension>
+    <extension id="EditorId1443f901c61bdd057b1290913f8" point="com.ibm.etools.patterns.ui.PatternEditorTypeContributor">
+        <EditorContributor
+            EditorId="EditorId1443f901c61bdd057b1290913f8"
+            EditorImpl="com.ibm.etools.mft.pattern.support.edit.extensions.custom.UserDefinedPropertyEditor"
+            PluginId="com.ibm.etools.mft.pattern.support.edit"
+            argSeparator="," arguments="com.ibm.etools.mft.pattern.fp.rd.http.code|com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.editors.TextInputEditor|includesample|sampleContentId=web_service_url"/>
+    </extension>
+    <extension id="EditorId1443f915bd797d0d1535e995a9" point="com.ibm.etools.patterns.ui.PatternEditorTypeContributor">
+        <EditorContributor EditorId="EditorId1443f915bd797d0d1535e995a9"
+            EditorImpl="com.ibm.etools.mft.pattern.support.edit.extensions.custom.UserDefinedPropertyEditor"
+            PluginId="com.ibm.etools.mft.pattern.support.edit"
+            argSeparator="," arguments="com.ibm.etools.mft.pattern.fp.rd.http.code|com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.editors.TextInputEditor|includesample|sampleContentId=web_service_url"/>
+    </extension>
+    <extension id="EditorId1446433abba5fd3715d7f726693" point="com.ibm.etools.patterns.ui.PatternEditorTypeContributor">
+        <EditorContributor
+            EditorId="EditorId1446433abba5fd3715d7f726693"
+            EditorImpl="com.ibm.etools.mft.pattern.support.edit.extensions.custom.UserDefinedPropertyEditor"
+            PluginId="com.ibm.etools.mft.pattern.support.edit"
+            argSeparator="," arguments="com.ibm.etools.mft.pattern.fp.rd.http.code|com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.editors.TableInputEditor|includesample|columns=Namespace Prefix, Namespace URI;sampleOption=SPECIFIC_ROUTING;"/>
+    </extension>
+    <extension id="EditorId1446ed53aefd094b69b329e48e3" point="com.ibm.etools.patterns.ui.PatternEditorTypeContributor">
+        <EditorContributor
+            EditorId="EditorId1446ed53aefd094b69b329e48e3"
+            EditorImpl="com.ibm.etools.mft.pattern.support.edit.extensions.custom.UserDefinedPropertyEditor"
+            PluginId="com.ibm.etools.mft.pattern.support.edit"
+            argSeparator="," arguments="com.ibm.etools.mft.pattern.fp.rd.http.code|com.ibm.etools.mft.pattern.fp.rd.http.code.SamplifiableEditors.editors.TableInputEditor|includesample|columns=Key Location, Key Value, Web service URL;sampleContentId=routing_table;sampleOption=SPECIFIC_ROUTING"/>
+    </extension>
+</plugin>
