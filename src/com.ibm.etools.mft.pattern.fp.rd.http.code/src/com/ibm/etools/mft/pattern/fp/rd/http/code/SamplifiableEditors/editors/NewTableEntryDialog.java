@@ -115,7 +115,8 @@ public class NewTableEntryDialog extends Dialog {
 		if (this.dialogType == TableEntryDialogType.TEDT_ADD) {
 			addBtn.setText("Add");
 		} else if (this.dialogType == TableEntryDialogType.TEDT_EDIT) {
-			addBtn.setText("Edit");
+			// addBtn.setText("Edit");
+			addBtn.setText("Save");
 		}
 		addBtn.addSelectionListener(new SelectionListener() {
 			

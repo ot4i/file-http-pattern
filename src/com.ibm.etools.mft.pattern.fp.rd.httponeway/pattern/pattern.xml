@@ -6,7 +6,7 @@
     <displayName>Pattern Plug-in</displayName>
     <package>com.ibm.etools.mft.pattern.fp.rd.httponeway</package>
     <description>File Record Distribution using HTTP</description>
-    <version>0.2.0.0</version>
+    <version>2.0.0.0</version>
     <provider>IBM</provider>
     <categories/>
     <patterns>
@@ -19,7 +19,7 @@
         <schema/>
         <referencedProjects>
           <referencedProject>
-            <referencedProjectId>Id14edc38c34c6aaaac8956497c1e</referencedProjectId>
+            <referencedProjectId>Id16109f48522316ec95eb9b11e33</referencedProjectId>
             <displayName>HTTP one-way</displayName>
             <enabled>true</enabled>
             <customProject>false</customProject>
@@ -68,7 +68,7 @@
             </folders>
           </referencedProject>
           <referencedProject>
-            <referencedProjectId>Id14edc38c360aeb3f4a1cd74c194</referencedProjectId>
+            <referencedProjectId>Id16109f4852eb004d2bb592fe6a8</referencedProjectId>
             <displayName>HTTP-oneway_sample</displayName>
             <enabled>true</enabled>
             <customProject>false</customProject>
@@ -148,7 +148,14 @@
                             <folderName>country</folderName>
                             <relativePath>webserver/public/country</relativePath>
                             <enabled>true</enabled>
-                            <files/>
+                            <files>
+                              <file>
+                                <fileName>temp.txt</fileName>
+                                <relativePath>webserver/public/country/temp.txt</relativePath>
+                                <enabled>false</enabled>
+                                <targets/>
+                              </file>
+                            </files>
                             <folders/>
                           </folder>
                         </folders>
@@ -156,6 +163,37 @@
                     </folders>
                   </folder>
                 </folders>
+              </folder>
+            </folders>
+          </referencedProject>
+          <referencedProject>
+            <referencedProjectId>Id16109f4852ebc272889e6d4df45</referencedProjectId>
+            <displayName>MockNodeJs</displayName>
+            <enabled>true</enabled>
+            <customProject>false</customProject>
+            <prefixProjectName>true</prefixProjectName>
+            <expression></expression>
+            <referenceId></referenceId>
+            <folders>
+              <folder>
+                <folderName>root</folderName>
+                <relativePath></relativePath>
+                <enabled>true</enabled>
+                <files>
+                  <file>
+                    <fileName>.project</fileName>
+                    <relativePath>.project</relativePath>
+                    <enabled>true</enabled>
+                    <targets/>
+                  </file>
+                  <file>
+                    <fileName>MockNodeJs_pi.zip</fileName>
+                    <relativePath>MockNodeJs_pi.zip</relativePath>
+                    <enabled>true</enabled>
+                    <targets/>
+                  </file>
+                </files>
+                <folders/>
               </folder>
             </folders>
           </referencedProject>
@@ -203,7 +241,15 @@
                     </events>
                   </slave>
                   <slave>
-                    <parameterId>inputdir</parameterId>
+                    <parameterId>noroutingweburl</parameterId>
+                    <events>
+                      <event>
+                        <type>valueChanged</type>
+                      </event>
+                    </events>
+                  </slave>
+                  <slave>
+                    <parameterId>specificroutesnamespace</parameterId>
                     <events>
                       <event>
                         <type>valueChanged</type>
@@ -219,14 +265,6 @@
                     </events>
                   </slave>
                   <slave>
-                    <parameterId>noroutingweburl</parameterId>
-                    <events>
-                      <event>
-                        <type>valueChanged</type>
-                      </event>
-                    </events>
-                  </slave>
-                  <slave>
                     <parameterId>specificroutesurl</parameterId>
                     <events>
                       <event>
@@ -235,7 +273,7 @@
                     </events>
                   </slave>
                   <slave>
-                    <parameterId>specificroutesnamespace</parameterId>
+                    <parameterId>inputdir</parameterId>
                     <events>
                       <event>
                         <type>valueChanged</type>
@@ -583,7 +621,7 @@ If a row is included, both of the parameters must be included.&lt;/p>&#xD;
         <patternExtensions>
           <packageExtensions>
             <packageExtension>
-              <extensionId>Id14edc38df60196aa8d46e49ed8c</extensionId>
+              <extensionId>Id16109f554e7eba3f62785f00183</extensionId>
               <extensionClass>com.ibm.etools.mft.pattern.support.edit.pattern.PackagePatternEditorTransform</extensionClass>
               <extensionConfiguration/>
             </packageExtension>
@@ -670,73 +708,28 @@ If a row is included, both of the parameters must be included.&lt;/p>&#xD;
               <enabled>true</enabled>
               <files>
                 <file>
-                  <fileName>after.htm</fileName>
-                  <relativePath>after.htm</relativePath>
-                  <enabled>true</enabled>
-                  <targets/>
-                </file>
-                <file>
-                  <fileName>before.htm</fileName>
-                  <relativePath>before.htm</relativePath>
-                  <enabled>true</enabled>
-                  <targets/>
-                </file>
-                <file>
-                  <fileName>constraints.htm</fileName>
-                  <relativePath>constraints.htm</relativePath>
-                  <enabled>true</enabled>
-                  <targets/>
-                </file>
-                <file>
                   <fileName>overview.htm</fileName>
                   <relativePath>overview.htm</relativePath>
                   <enabled>true</enabled>
                   <targets/>
                 </file>
-                <file>
-                  <fileName>parameters.htm</fileName>
-                  <relativePath>parameters.htm</relativePath>
-                  <enabled>true</enabled>
-                  <targets/>
-                </file>
-                <file>
-                  <fileName>recorddistributor.ai</fileName>
-                  <relativePath>recorddistributor.ai</relativePath>
-                  <enabled>true</enabled>
-                  <targets/>
-                </file>
-                <file>
-                  <fileName>recorddistributor.gif</fileName>
-                  <relativePath>recorddistributor.gif</relativePath>
-                  <enabled>true</enabled>
-                  <targets/>
-                </file>
-                <file>
-                  <fileName>recorddistributor.htm</fileName>
-                  <relativePath>recorddistributor.htm</relativePath>
-                  <enabled>true</enabled>
-                  <targets/>
-                </file>
-                <file>
-                  <fileName>recordprocessor.htm</fileName>
-                  <relativePath>recordprocessor.htm</relativePath>
-                  <enabled>true</enabled>
-                  <targets/>
-                </file>
-                <file>
-                  <fileName>routeflow.htm</fileName>
-                  <relativePath>routeflow.htm</relativePath>
-                  <enabled>true</enabled>
-                  <targets/>
-                </file>
-                <file>
-                  <fileName>sample.htm</fileName>
-                  <relativePath>sample.htm</relativePath>
-                  <enabled>true</enabled>
-                  <targets/>
-                </file>
               </files>
-              <folders/>
+              <folders>
+                <folder>
+                  <folderName>css</folderName>
+                  <relativePath>css</relativePath>
+                  <enabled>true</enabled>
+                  <files>
+                    <file>
+                      <fileName>pattern.css</fileName>
+                      <relativePath>css/pattern.css</relativePath>
+                      <enabled>true</enabled>
+                      <targets/>
+                    </file>
+                  </files>
+                  <folders/>
+                </folder>
+              </folders>
             </folder>
           </folders>
         </specification>

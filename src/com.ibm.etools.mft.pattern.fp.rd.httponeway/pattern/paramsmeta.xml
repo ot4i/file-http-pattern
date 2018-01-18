@@ -8,19 +8,19 @@
             <slave id="routingtype">
                 <event type="valueChanged"/>
             </slave>
-            <slave id="inputdir">
+            <slave id="noroutingweburl">
+                <event type="valueChanged"/>
+            </slave>
+            <slave id="specificroutesnamespace">
                 <event type="valueChanged"/>
             </slave>
             <slave id="specificroutesrouting">
                 <event type="valueChanged"/>
             </slave>
-            <slave id="noroutingweburl">
-                <event type="valueChanged"/>
-            </slave>
             <slave id="specificroutesurl">
                 <event type="valueChanged"/>
             </slave>
-            <slave id="specificroutesnamespace">
+            <slave id="inputdir">
                 <event type="valueChanged"/>
             </slave>
         </master>
@@ -97,4 +97,5 @@
     </Group>
     <ReferencedProject name="_HTTP one-way"/>
     <ReferencedProject name="_HTTP-oneway_sample"/>
+    <ReferencedProject name="_MockNodeJs"/>
 </povs>

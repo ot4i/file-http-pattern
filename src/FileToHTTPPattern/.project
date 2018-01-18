@@ -5,15 +5,11 @@
 	<projects>
 		<project>HTTP one-way</project>
 		<project>HTTP-oneway_sample</project>
+		<project>MockNodeJs</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
 			<name>com.ibm.etools.mft.pattern.capture.PatternBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>com.ibm.etools.mft.pattern.capture.ui.patternbuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
