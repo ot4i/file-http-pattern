@@ -67,7 +67,7 @@ public class PatternGenerator implements GeneratePatternInstanceTransform {
 
 	// Nodes
 	private static final String FILE_INPUT_NODE = "File Input";
-	private static final String ROUTE_NODE = "Route";
+	private static final String ROUTE_NODE = "Route by Country";
 	private static final String ROUTE_FLOW_INPUT_NODE = "RouteInput";
 	private static final String ROUTE_FLOW_OUTPUT_NODE = "RouteOutput";
 	private static final String RECORD_PROCESSOR_NODE = "Record Processor";
@@ -365,23 +365,25 @@ public class PatternGenerator implements GeneratePatternInstanceTransform {
 
 			FilterTableRow tableRow = filterTable.createRow();
 			tableRow.setFilterPattern(keyLocation + "=\"" + keyValue + "\"");
-			tableRow.setRoutingOutputTerminal("match" + rowI);
+			tableRow.setRoutingOutputTerminal(keyValue);
 
 			filterTable.addRow(tableRow);
 
 			OutputNode outputNode = new OutputNode();
-			outputNode.setNodeName("match" + rowI);
+			outputNode.setNodeName(keyValue);
 			outputNode.setLocation(routeNode.getLocation().x + 150,
 					routeNode.getLocation().y + (150 * rowI));
 			routeFlow.addNode(outputNode);
 
-			routeFlow.connect(routeNode.getOutputTerminal("match" + rowI),
+
+			routeFlow.connect(routeNode.getOutputTerminal(keyValue),
 					outputNode.INPUT_TERMINAL_IN);
 
 			// Connect to http request nodes
+
 			this.connectHttpRequest(
-					routeSubFlowNode.getOutputTerminal("match" + rowI),
-					webserviceUri, "HTTP Request " + rowI, rowI - 1);
+					routeSubFlowNode.getOutputTerminal(keyValue),
+					webserviceUri, "HTTP Request: " + keyValue, rowI - 1);
 
 			rowI++;
 
@@ -399,9 +401,10 @@ public class PatternGenerator implements GeneratePatternInstanceTransform {
 			routeFlow.addNode(outputNode);
 			routeFlow.connect(routeNode.OUTPUT_TERMINAL_DEFAULT,
 					outputNode.INPUT_TERMINAL_IN);
+
 			this.connectHttpRequest(
 					routeSubFlowNode.getOutputTerminal("default"), defaultURI,
-					"Default HTTP Request", rowI - 1);
+					"HTTP Request: Default", rowI - 1);
 
 			uris.add(defaultURI);
 		}

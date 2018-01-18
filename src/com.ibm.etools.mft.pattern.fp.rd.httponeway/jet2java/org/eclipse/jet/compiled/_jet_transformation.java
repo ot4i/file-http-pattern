@@ -36,11 +36,11 @@ public class _jet_transformation implements JET2TemplateLoader,
             case 0: // pattern/templates/dump.jet
                 return new org.eclipse.jet.compiled._jet_dump_0();
             case 1: // pattern/templates/main.jet
-                return new org.eclipse.jet.compiled._jet_main();
+                return new org.eclipse.jet.compiled._jet_main_0();
             case 2: // templates/dump.jet
                 return new org.eclipse.jet.compiled._jet_dump();
             case 3: // templates/main.jet
-                return new org.eclipse.jet.compiled._jet_main_0();
+                return new org.eclipse.jet.compiled._jet_main();
             default:
                 break;
             }

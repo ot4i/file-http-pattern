@@ -516,19 +516,21 @@ DataInjector.prototype.updateData = function(data) {
 					<h2>About the pattern's sample</h2>
 				</div>
 				<div class="boxContent">
-					<p>A sample web service and data records have been included in the pattern instance to provide an out-of-the-box demonstration of the pattern's functionality.<p>
-					<p><a href="#" onclick="gotoPage('test')" class="button">Click here</a> to access the interactive guide on how to test the pattern with the sample web service and records provided</p>
+					<p>A sample web service and data records have been included in the pattern instance to provide an out-of-the-box demonstration of the pattern's functionality.  Look in the project named: {pattern instance name}_HTTP-oneway_sample.  Start the web service by running the start_server command in the subdirectory named webserver.  Deploy the Application named {pattern instance name}_HTTP one-way.  Then copy an input file (e.g. Record1.json) to the directory polled by the FileInput node of the RecordDistributor message flow.</p>
+					<!--  p><a href="#" onclick="gotoPage('test')" class="button">Click here</a> to access the interactive guide on how to test the pattern with the sample web service and records provided</p -->
 				</div>
 		</div>
 	</div>
-	<div class="right">
+	<!-- div class="right" -->
+	<div class="left">
 		<div class="box">
 				<div class="header">		
 					<h2>Flows</h2>
 				</div>
 				<div class="boxContent">
 					<ul>
-						<li><a href="#" onclick="setStatus('/jkhkj_HTTP one-way/RecordDistributor.msgflow')">RecordDistributor.msgflow</a></li>
+						<!-- li><a href="#" onclick="setStatus('/jkhkj_HTTP one-way/RecordDistributor.msgflow')">RecordDistributor.msgflow</a></li -->
+						<li>RecordDistributor.msgflow</li>
 					</ul>
 				</div>
 		</div>
@@ -538,8 +540,10 @@ DataInjector.prototype.updateData = function(data) {
 				</div>
 				<div class="boxContent">
 					<ul>
-						<li><a href="#" onclick="setStatus('/jkhkj_HTTP one-way/RecordProcessor.subflow')">RecordProcessor.subflow</a></li>
-						<li><a href="#" onclick="setStatus('/jkhkj_HTTP one-way/Route.subflow')">Route.subflow</a></li>
+						<!--  li><a href="#" onclick="setStatus('/jkhkj_HTTP one-way/RecordProcessor.subflow')">RecordProcessor.subflow</a></li>
+						<li><a href="#" onclick="setStatus('/jkhkj_HTTP one-way/Route.subflow')">Route.subflow</a></li -->
+						<li>RecordProcessor.subflow</li>
+						<li>Route.subflow</li>
 					</ul>
 				</div>
 		</div>
