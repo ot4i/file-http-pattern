@@ -1,45 +1,113 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <link rel="stylesheet" type="text/css" href="./css/pattern.css"/>
-        <title>Pattern Specification</title>
-    </head>
-    <body>
-        <h1 class="topictitle1">Pattern Specification</h1>
-        <div>
-            <p class="shortdesc"></p>
-        </div>
-        <p>Your pattern is a reusable solution that encapsulates a tested approach to solving a common architecture, design, or deployment task in a particular context.</p>
-        
-        <div class="section">
-            <h2 class="sectiontitle">Solution</h2>
-        </div>
-        
-		<p>The specification of your pattern describes the problem that is being addressed, why the problem is important (the value statement), and any constraints for the solution. Patterns typically emerge from common usage and the application of a particular product or technology.</p>		
-		<p>Your pattern has values that are known as pattern parameters. The pattern parameters that your pattern users configure depend on the pattern and on the options the pattern author enables for this pattern. An example of a pattern parameter is a queue name from where messages are read. After the pattern users have configured the pattern parameters, the pattern users generate a Pattern Instance project, which is a WebSphere Message Broker project that contains a pattern instance configuration file. This configuration file stores the pattern parameters that the pattern user has configured. Generation also creates one or more additional WebSphere Message Broker projects that typically contain message flows and other WebSphere Message Broker resources that implement the pattern.</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
 
-		<div class="familylinks">
-			<a name="anchorBack"></a>
-			<div class="section">
-				<h2 class="sectiontitle">Related tasks</h2>
-			</div>
-			<p>You might want to author additional files that explain how to apply and use this pattern. The following links are standard in pattern specifications:</p>
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009" />
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009" />
+	<meta name="abstract" content="Overview of the Record Distribution to MQ pattern"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css" />
+	<title>Record Distribution to HTTP: one-way pattern</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.fp.rd.httponeway">
+<h1 class="topictitle1"><span>Record Distribution to HTTP: one-way pattern</span></h1>
+<div>
+	<p class="shortdesc">Use the <span>Record Distribution to HTTP: one-way</span> 
+	pattern to connect file-based and transaction-based styles of integration. </p>
+	
+	<p>Use this pattern in the following situations: <ul>
+<li>You have batches of transactions that are received as files from local or remote systems.</li>
+<li>Your transactions cannot be sent as individual transactions. For example:
+<ul>
+	<li>The source systems support file-based integration capabilities only.</li>
+	<li>The business requirements mandate that transactions are batched; for example, the collection 
+	of all transactions within a working day.</li>
+	<li>You must conform to existing working practices; for example, you must use files that contain EDI
+	transactions.</li>
+</ul></li>
+<li>Your target systems are designed to accept individual transactions. Such systems might take
+input from near real-time systems and from batch files, and therefore present a transactional
+interface.</li>
+<li>You have batch files that contain transactions that must be distributed to one or more
+systems.</li>
+<li>If any failures occur, it must be acceptable for the entire file to be reprocessed.
+</li>
+</ul></p>
+</div>
+
+<div class="section">
+	<h2 class="sectiontitle">Solution</h2>
+</div>
+<p>The solution is to implement a message flow that reads records from a file and routes each record to one
+of the following destinations:
+<ul>
+<li>An HTTP web service that is defined in the routing rules.</li>
+<li>A default destination, if a matching HTTP web service is not found in the routing rules.</li>
+</ul>
+</p>
+<div>
+<div class="image">
+	<img src="recorddistributor.gif"
+		alt="A diagram showing the behavior of the pattern service requests are forwarded to the end service provider." />
+</div>
+<p>If you do not have the prerequisite resources in your environment, the pattern contains sample data that you 
+can use for test purposes. The sample data includes a Node.js web service. To run the web service you must have 
+the Node.js runtime environment installed on your computer. 
+The Node.js runtime environment can be downloaded from the <span>Node.js web site: <a href="http://nodejs.org/" title="Node.js web site">http://nodejs.org/</a></span>.
+</p>
+	<div class="section">
+			<h2 class="sectiontitle">Message Flows</h2>
 		</div>
+		<p>
+			Read the following sections for information about the message flows that make up this solution.
+		</p>
+	<div>
+		<a href="recorddistributor.htm" title="Design information about the Record Distrinbutor message flow.">RecordDistributor message flow</a>
+	</div>
+	<div>
+		<a href="recordprocessor.htm" title="Design information about the Record Processor subflow.">RecordProcessor subflow</a>
+	</div>
 		<div>
-			<a href="overview.htm">Constraints on the use of the pattern</a>
+		<a href="routeflow.htm" title="Design information about the Route subflow.">Route subflow</a>
+	</div>
+	<div class="familylinks">
+		<a name="anchor1"></a>
+		<div class="section">
+			<h2 class="sectiontitle">Related tasks</h2>
 		</div>
-		<div>
-			<a href="overview.htm">Tasks to complete before applying the pattern</a>
-		</div>
-		<div>
-			<a href="overview.htm">Apply and configure the pattern</a>
-		</div>
-		<div>
-			<a href="parameters.htm">Parameters for the pattern</a>
-		</div>
-		<div>
-			<a href="overview.htm">Tasks to complete after generating the pattern</a>
-		</div>
-    </body>
+		<p>
+			Read the following sections for information about how to use this pattern.
+		</p>
+		<a href="constraints.htm" title="Constraints on the use of the pattern">
+			Constraints on the use of the pattern</a>
+	</div>
+	<div>
+		<a href="before.htm" title="What you need to know, and what resources you must have before you can use the pattern">
+			Tasks to complete before you generate the pattern</a>
+	</div>
+	<div>
+		<a href="parameters.htm" title="Parameters for the pattern">
+			Parameters for the pattern</a>
+	</div>	
+	<div>
+		<a href="sample.htm" title="Sample data for the pattern">
+			Sample data for the pattern</a>
+	</div>
+	<div>
+		<a href="after.htm" title="Tasks to complete after generating the pattern">
+			Tasks to complete after you generate the pattern</a>
+	</div>
+</div>
+</body>
 </html>

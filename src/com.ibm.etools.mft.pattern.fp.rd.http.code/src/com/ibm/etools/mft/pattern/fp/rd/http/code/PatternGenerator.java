@@ -67,6 +67,8 @@ public class PatternGenerator implements GeneratePatternInstanceTransform {
 
 	// Nodes
 	private static final String FILE_INPUT_NODE = "File Input";
+	// Steve Parsons; sparsons@sparsons.net; V2.0.0.1; 09 Feb 2018 
+	//private static final String ROUTE_NODE = "Route";
 	private static final String ROUTE_NODE = "Route by Country";
 	private static final String ROUTE_FLOW_INPUT_NODE = "RouteInput";
 	private static final String ROUTE_FLOW_OUTPUT_NODE = "RouteOutput";
@@ -365,22 +367,31 @@ public class PatternGenerator implements GeneratePatternInstanceTransform {
 
 			FilterTableRow tableRow = filterTable.createRow();
 			tableRow.setFilterPattern(keyLocation + "=\"" + keyValue + "\"");
+			// Steve Parsons; sparsons@sparsons.net; V2.0.0.1; 09 Feb 2018
+			// tableRow.setRoutingOutputTerminal("match" + rowI);
 			tableRow.setRoutingOutputTerminal(keyValue);
 
 			filterTable.addRow(tableRow);
 
 			OutputNode outputNode = new OutputNode();
+			// Steve Parsons; sparsons@sparsons.net; V2.0.0.1; 09 Feb 2018
+			//outputNode.setNodeName("match" + rowI);
 			outputNode.setNodeName(keyValue);
 			outputNode.setLocation(routeNode.getLocation().x + 150,
 					routeNode.getLocation().y + (150 * rowI));
 			routeFlow.addNode(outputNode);
 
-
+			// Steve Parsons; sparsons@sparsons.net; V2.0.0.1; 09 Feb 2018
+			/*routeFlow.connect(routeNode.getOutputTerminal("match" + rowI),
+					outputNode.INPUT_TERMINAL_IN);*/
 			routeFlow.connect(routeNode.getOutputTerminal(keyValue),
 					outputNode.INPUT_TERMINAL_IN);
 
 			// Connect to http request nodes
-
+			// Steve Parsons; sparsons@sparsons.net; V2.0.0.1; 09 Feb 2018
+/*			this.connectHttpRequest(
+					routeSubFlowNode.getOutputTerminal("match" + rowI),
+					webserviceUri, "HTTP Request: " + rowI, rowI - 1);		*/	
 			this.connectHttpRequest(
 					routeSubFlowNode.getOutputTerminal(keyValue),
 					webserviceUri, "HTTP Request: " + keyValue, rowI - 1);
@@ -402,6 +413,10 @@ public class PatternGenerator implements GeneratePatternInstanceTransform {
 			routeFlow.connect(routeNode.OUTPUT_TERMINAL_DEFAULT,
 					outputNode.INPUT_TERMINAL_IN);
 
+			// Steve Parsons; sparsons@sparsons.net; V2.0.0.1; 09 Feb 2018
+/*			this.connectHttpRequest(
+					routeSubFlowNode.getOutputTerminal("default"), defaultURI,
+					"Default HTTP Request", rowI - 1);*/
 			this.connectHttpRequest(
 					routeSubFlowNode.getOutputTerminal("default"), defaultURI,
 					"HTTP Request: Default", rowI - 1);
