@@ -3,8 +3,8 @@ file-http-pattern
 
 File to http pattern for use with IBM Integration Bus
 
-## Maintained by:
-Steve Parsons: (<a href="https://github.com/sparsons-net" class="user-mention">@sparsons-net</a>), a field practitioner specializing in MQ, MQMFT, and IBM Integration Bus (IIB).
+## Maintained by
+Steve Parsons (<a href="https://github.com/sparsons-net" class="user-mention">@sparsons-net</a>) is a field practitioner specializing in MQ, MQMFT, and IBM Integration Bus (IIB).
 
 ## Contributions
 
